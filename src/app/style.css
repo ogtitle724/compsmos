@@ -1,0 +1,37 @@
+.main {
+  width: fit-content;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.main__section {
+  width: 100vw;
+  height: 100vh;
+}
+
+.main__section:nth-child(1) {
+  background-color: var(--color-yellow);
+  scroll-snap-align: start;
+}
+
+.main__section:nth-child(2) {
+  scroll-snap-align: start;
+  background-color: var(--color-pink);
+}
+
+.main__section:nth-child(3) {
+  scroll-snap-align: start;
+  background-color: var(--color-sky);
+}
+
+.main__section:nth-child(4) {
+  scroll-snap-align: start;
+  background-color: var(--color-purple);
+}
+
+.main__section:nth-child(5) {
+  scroll-snap-align: start;
+
+  background-color: var(--color-lightsky);
+}

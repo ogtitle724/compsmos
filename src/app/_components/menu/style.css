@@ -1,0 +1,110 @@
+.menu {
+  width: var(--header-width);
+  height: 0;
+  position: absolute;
+  top: calc(var(--header-height));
+  left: 0;
+  transition-property: top, height, background-color, border-radius, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  overflow-y: scroll;
+  background-color: var(--color-smoke);
+}
+
+.menu::-webkit-scrollbar {
+  width: 0;
+}
+
+.menu--show {
+  height: calc(100vh - var(--header-height));
+  top: var(--header-height);
+}
+
+.menu__section {
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.menu__section:nth-last-child(2) {
+  height: 50%;
+}
+
+.menu__section::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-font);
+}
+
+.menu__topic {
+  position: sticky;
+  top: 0px;
+}
+
+.menu__topic--focus::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 4px solid;
+  border-color: var(--color-smoke) var(--color-smoke) var(--color-font)
+    var(--color-font);
+}
+
+.menu__subTopic {
+  position: relative;
+}
+
+.menu__subTopic--focus::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 4px solid;
+  border-radius: 2px;
+  border-color: var(--color-font) var(--color-font) var(--color-smoke)
+    var(--color-smoke);
+}
+
+.menu__subTopic--focus {
+  background-color: pink;
+}
+
+.menu__topic p {
+  height: fit-content;
+  padding: 16px 20px;
+  margin-right: calc(var(--header-width) * 0.5);
+  text-transform: uppercase;
+  text-align: end;
+}
+
+.menu__subTopic p {
+  height: fit-content;
+  padding: 8px 20px;
+  margin-left: calc(var(--header-width) * 0.5);
+  text-transform: lowercase;
+  text-align: start;
+}
+
+.menu__marker {
+  width: 8px;
+  height: 8px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) rotateZ(45deg);
+  background-color: var(--color-font);
+  transition: 0.5s;
+}
