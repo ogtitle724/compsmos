@@ -21,14 +21,14 @@
   width: 100%;
   flex-grow: 1;
   border-radius: 12px;
-  background-color: whitesmoke;
+  background-color: var(--color-smoke);
 }
 
 .comp-card__title {
   width: 100%;
   height: fit-content;
   min-height: 30px;
-  margin: 5px 0;
+  margin: 5px 0 2px 0;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;

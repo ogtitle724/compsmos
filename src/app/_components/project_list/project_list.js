@@ -14,9 +14,17 @@ import {
 import "./style.css";
 
 export default function ProjectList() {
-  const [iconSize, setIconSize] = useState(32);
+  const [iconSize, setIconSize] = useState();
 
   useEffect(() => {
+    if (window.innerWidth < 768 && window.innerWidth >= 480) {
+      setIconSize(20);
+    } else if (window.innerWidth < 480) {
+      setIconSize(16);
+    } else {
+      setIconSize(32);
+    }
+
     window.addEventListener("resize", () => {
       if (window.innerWidth < 768 && window.innerWidth >= 480) {
         setIconSize(20);

@@ -38,11 +38,11 @@ function ProjectCard(props) {
       <div className="p-card__btn-wrapper">
         <button className="btn p-card__btn">
           <span>visite</span>
-          <span className="tm">➜</span>
+          <span className="p-card__btn-dir">➜</span>
         </button>
         <button className="btn p-card__btn">
           <span>detail</span>
-          <span>➜</span>
+          <span className="p-card__btn-dir">➜</span>
         </button>
       </div>
     </div>

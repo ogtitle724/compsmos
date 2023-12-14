@@ -21,17 +21,17 @@
   --color-shadow-inset: rgba(0, 0, 0, 0.03);
 
   --color-body: white;
-  --color-main: black;
+  --color-main: rgb(255, 145, 20);
   --color-font: black;
   --color-smoke: whitesmoke;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-body: rgb(55, 55, 55);
-    --color-main: rgb(251, 251, 251);
-    --color-font: whitesmoke;
-    --color-smoke: whitesmoke;
+    --color-body: rgb(59, 59, 59);
+    --color-main: rgb(255, 145, 20);
+    --color-font: white;
+    --color-smoke: rgb(95, 95, 95);
   }
 
   html {
@@ -144,9 +144,9 @@ input {
   padding: 3px 14px 3px 14px;
   display: inline-block;
   border-radius: 30px;
-  background-color: var(--color-font);
+  background-color: black;
   font-size: var(--font-m);
-  color: var(--color-body);
+  color: white;
   text-align: center;
   text-transform: uppercase;
 }

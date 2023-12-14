@@ -20,8 +20,8 @@ export default function useChatObserver() {
               element.classList.add("chatbox--showtext");
               loadingNode.classList.add("loading--hide");
               chatNode.classList.add("chat--show");
-            }, 700 * id);
-          }, 1000 * id + (id - 1) * 600);
+            }, 1500 + Math.random() * 1000);
+          }, 1000 * id + (id - 1) * 800);
 
           observerInstance.unobserve(element);
         }

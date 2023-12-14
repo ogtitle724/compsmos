@@ -10,7 +10,7 @@ export default function useCompObserver() {
         entries.forEach((entry, idx) => {
           if (entry.isIntersecting) {
             entry.target.style.translate = "0 0";
-            observerInstance.unobserve(entry.target);
+            //observerInstance.unobserve(entry.target);
           }
         });
       },

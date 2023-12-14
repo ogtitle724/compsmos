@@ -16,7 +16,7 @@
   position: relative;
   border-radius: 12px;
   box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.6);
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-body);
 }
 
 .ts-card__section > h3 {
@@ -34,11 +34,12 @@
   padding: 10px 16px;
   position: fixed;
   border-radius: 12px;
-  background-color: rgb(237, 249, 212);
+  background-color: #ebd81c;
   box-shadow: 1.5px 1.5px 1px 3px rgba(0, 0, 0, 1);
   opacity: 0;
   z-index: 2;
   font-weight: 600;
+  color: black;
 }
 
 .ts-card__item {

@@ -4,7 +4,7 @@
   min-width: 40vw;
   max-width: 100vw;
   height: 100%;
-  min-height: 400px;
+  min-height: 560px;
   position: relative;
 }
 
@@ -16,22 +16,25 @@
   padding-bottom: 3px;
   position: relative;
   border-radius: 35px 35px 35px 0;
-  background-color: #f4e592;
+  background-color: #f8eb83;
   font-size: 22px;
   font-weight: 600;
+  color: black;
   overflow: hidden;
-  transition: 0.5s;
+  transition-property: width, height;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
 }
 
 .chatbox--loading {
   width: 100px;
   opacity: 1;
-  animation: flow 1.8s ease-in-out infinite;
+  animation: flow 1.6s ease-in-out infinite;
 }
 
 .chatbox--showtext {
   width: fit-content;
-  height: auto;
+  height: fit-content;
   padding: 10px 20px 12px 18px;
   opacity: 1;
 }
