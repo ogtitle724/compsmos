@@ -1,6 +1,7 @@
 .main {
   width: 100%;
   height: fit-content;
+  overflow-x: hidden;
 }
 
 .main > section:not(:nth-child(2), :nth-child(3)) {

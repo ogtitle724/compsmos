@@ -46,16 +46,13 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0px;
+  display: none;
 }
 
 body {
   width: 100vw;
   height: fit-content;
   background-color: var(--color-body);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  z-index: 10;
 }
 
 a {
