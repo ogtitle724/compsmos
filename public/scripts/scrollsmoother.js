@@ -2,21 +2,6 @@
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
 const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
-function preventDefault(e) {
-  e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-  if (keys[e.keyCode]) {
-    preventDefault(e);
-    return false;
-  }
-}
-
-function lerp(start, end, t) {
-  return start * (1 - t) + end * t;
-}
-
 // check whether the browser support "passive"
 let supportsPassive = false;
 
@@ -38,48 +23,15 @@ let wheelOpt = supportsPassive ? { passive: false } : false;
 let wheelEvent =
   "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
 
-function disableScroll() {
-  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
-  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
-}
-
-function enableScroll() {
-  window.removeEventListener("DOMMouseScroll", preventDefault, false);
-  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-  window.removeEventListener("touchmove", preventDefault, wheelOpt);
-  window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
-}
-
-disableScroll();
-
 let targetY = window.scrollY;
 let isAnimating = false;
 let maxY = document.documentElement.scrollHeight - window.innerHeight;
 let dir = null;
-console.log(document.documentElement.scrollHeight, window.innerHeight);
 
-function smoothScroll() {
-  const scroll = () => {
-    if (Math.abs(window.scrollY - targetY) <= 1) {
-      console.log("ennd");
-      isAnimating = false;
-      return;
-    }
-
-    const next = lerp(window.scrollY, targetY, 0.06);
-    const diff = Math.abs(window.scrollY - next);
-
-    if (diff <= 1) window.scrollTo(0, window.scrollY + dir);
-    else window.scrollTo(0, next);
-
-    requestAnimationFrame(scroll);
-  };
-
-  requestAnimationFrame(scroll);
-  isAnimating = true;
-}
+window.addEventListener("resize", () => {
+  console.log("resize");
+  maxY = document.documentElement.scrollHeight - window.innerHeight;
+});
 
 window.addEventListener("wheel", (e) => {
   if (e.deltaY > 0) {
@@ -113,4 +65,54 @@ window.addEventListener("wheel", (e) => {
   }
 });
 
+disableScroll();
 smoothScroll();
+
+function disableScroll() {
+  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+  //window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+}
+
+function enableScroll() {
+  window.removeEventListener("DOMMouseScroll", preventDefault, false);
+  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+  //window.removeEventListener("touchmove", preventDefault, wheelOpt);
+  window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+}
+
+function preventDefault(e) {
+  e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+function lerp(start, end, t) {
+  return start * (1 - t) + end * t;
+}
+
+function smoothScroll() {
+  const scroll = () => {
+    if (Math.abs(window.scrollY - targetY) <= 1) {
+      isAnimating = false;
+      return;
+    }
+
+    const next = lerp(window.scrollY, targetY, 0.06);
+    const diff = Math.abs(window.scrollY - next);
+
+    if (diff <= 1) window.scrollTo(0, window.scrollY + dir);
+    else window.scrollTo(0, next);
+
+    requestAnimationFrame(scroll);
+  };
+
+  requestAnimationFrame(scroll);
+  isAnimating = true;
+}
