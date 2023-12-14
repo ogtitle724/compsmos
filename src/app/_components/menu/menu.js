@@ -2,81 +2,73 @@
 import Link from "next/link";
 import topics from "@/config/topic";
 import ToggleBtn from "@comp/btns/toggle/toggleBtn";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useRef } from "react";
 import { usePathname } from "next/navigation";
 import "./style.css";
 
 function Menu(props) {
-  const [isShow, setIsShow] = useState(false);
-  const marker = useRef();
+  console.log("MENU");
   const nav = useRef();
   const path = usePathname().slice(1);
-
-  console.log(path);
-
-  useEffect(() => {}, [isShow, props.header]);
-
-  useEffect(() => {
-    if (nav.current) {
-      nav.current.addEventListener("mousemove", (e) => {
-        console.log(e);
-        marker.current.style.top = `${e.pageY}px`;
-      });
-    }
-  }, [nav]);
 
   return (
     <>
       <div className="menu-btn__pre">
-        <ToggleBtn isClk={isShow} setIsClk={setIsShow} />
+        <ToggleBtn isClk={props.isMenuShow} setIsClk={props.setIsMenuShow} />
       </div>
-
-      <nav ref={nav} className={"menu" + (isShow ? " menu--show" : "")}>
-        <section className={`menu__section`}>
-          <Link
-            href={"/"}
-            className={
-              "menu__topic" + (path === "" ? " menu__topic--focus" : "")
-            }
-          >
-            <p className="tt">home</p>
-          </Link>
-        </section>
-        {Object.entries(topics).map((entry) => {
-          const topic = entry[0];
-          const subTopics = entry[1];
-
-          return (
-            <section key={`menu-${topic}`} className={`menu__section`}>
-              <Link
-                href={`/${topic}`}
-                className={
-                  "menu__topic" + (path === topic ? " menu__topic--focus" : "")
-                }
-              >
-                <p className="tt">{topic}</p>
+      <nav
+        ref={nav}
+        className={"menu" + (props.isMenuShow ? " menu--show" : "")}
+      >
+        <div className="menu__section-wrapper">
+          <section className={`menu__section`}>
+            <div
+              className={
+                "menu__topic" + (path === "" ? " menu__topic--focus" : "")
+              }
+            >
+              <Link href={"/"}>
+                <p>home</p>
               </Link>
-              {subTopics.map((subTopic) => {
-                return (
-                  <Link
-                    key={`menu-${topic}-${subTopic}`}
-                    href={`/${topic}/${subTopic}`}
-                    className={
-                      "menu__subTopic" +
-                      (path === `${topic}/${subTopic}`
-                        ? " menu__subTopic--focus"
-                        : "")
-                    }
-                  >
-                    <p className="tt">{subTopic}</p>
+            </div>
+          </section>
+          {Object.entries(topics).map((entry) => {
+            const topic = entry[0];
+            const subTopics = entry[1];
+
+            return (
+              <section key={`menu-${topic}`} className={`menu__section`}>
+                <div
+                  className={
+                    "menu__topic" +
+                    (path === topic ? " menu__topic--focus" : "")
+                  }
+                >
+                  <Link href={`/${topic}`}>
+                    <p>{topic}</p>
                   </Link>
-                );
-              })}
-            </section>
-          );
-        })}
-        <section className={`menu__section`}></section>
-        <div ref={marker} className="menu__marker" hidden={!isShow}></div>
+                </div>
+                {subTopics.map((subTopic) => {
+                  return (
+                    <div
+                      key={`menu-${topic}-${subTopic}`}
+                      className={
+                        "menu__subTopic" +
+                        (path === `${topic}/${subTopic}`
+                          ? " menu__subTopic--focus"
+                          : "")
+                      }
+                    >
+                      <Link href={`/${topic}/${subTopic}`}>
+                        <p>{subTopic}</p>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </section>
+            );
+          })}
+        </div>
       </nav>
     </>
   );

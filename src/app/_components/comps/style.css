@@ -1,0 +1,19 @@
+.comps {
+  width: 96vw;
+  height: fit-content;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30vw);
+  justify-content: center;
+  justify-items: center;
+  align-content: space-around;
+  align-items: center;
+  gap: 3vw;
+}
+
+@media screen and (max-width: 767px) {
+  .comps {
+    grid-template-columns: repeat(auto-fill, 45vw);
+    gap: 20px;
+  }
+}

@@ -3,11 +3,11 @@
   --font-l: 18px;
   --font-m: 16px;
   --font-s: 14px;
+  --font-ht: 25px;
+  --font-hm: 23px;
   --header-width: 100vw;
   --header-height: 43px;
 
-  --color-body: white;
-  --color-main: black;
   --color-yellow: rgb(252, 215, 121);
   --color-pink: rgb(239, 142, 143);
   --color-sky: rgb(157, 175, 215);
@@ -16,16 +16,21 @@
   --color-purple: rgb(190, 178, 216);
   --color-grey: rgb(186, 190, 191);
   --color-brown: rgb(189, 172, 163);
+
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-inset: rgba(0, 0, 0, 0.03);
+
+  --color-body: white;
+  --color-main: black;
   --color-font: black;
-  --color-smoke: whtesmoke;
+  --color-smoke: whitesmoke;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-body: rgb(55, 55, 55);
     --color-main: rgb(251, 251, 251);
-    --color-smoke: rgb(242, 242, 242);
-    --color-font: black;
+    --color-font: whitesmoke;
     --color-smoke: whitesmoke;
   }
 
@@ -40,14 +45,17 @@
   margin: 0;
 }
 
-body {
-  min-height: 100vh;
-  width: 100%;
-  background-color: var(--color-body);
+*::-webkit-scrollbar {
+  width: 0px;
 }
 
-body::-webkit-scrollbar {
-  width: 0;
+body {
+  width: 100vw;
+  height: fit-content;
+  background-color: var(--color-body);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 10;
 }
 
 a {
@@ -88,8 +96,22 @@ input {
   transform: translateY(-50%);
 }
 
+.ht {
+  line-height: calc(var(--font-ht) + 4px);
+  font-size: var(--font-ht);
+  font-weight: 700;
+  color: var(--color-font);
+}
+
+.hm {
+  line-height: calc(var(--font-hm) + 4px);
+  font-size: var(--font-hm);
+  font-weight: 500;
+  color: var(--color-font);
+}
+
 .tt {
-  line-height: calc(var(--font-t));
+  line-height: calc(var(--font-t) + 4px);
   font-size: var(--font-t);
   font-weight: 700;
   color: var(--color-font);
@@ -114,4 +136,29 @@ input {
   font-size: var(--font-s);
   font-weight: 300;
   color: var(--color-font);
+}
+
+.btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 3px 14px 3px 14px;
+  display: inline-block;
+  border-radius: 30px;
+  background-color: var(--color-font);
+  font-size: var(--font-m);
+  color: var(--color-body);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --font-t: 20px;
+    --font-l: 16px;
+    --font-m: 14px;
+    --font-s: 14px;
+    --font-ht: 20px;
+    --font-hm: 18px;
+    --header-height: 43px;
+  }
 }

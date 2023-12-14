@@ -1,0 +1,45 @@
+.tech-stack {
+  width: calc(100vw + 100px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  left: -50px;
+  padding: 14px;
+  overflow: hidden;
+  background-color: white;
+  transform: rotateZ(-14deg);
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.tech-stack--b {
+  transform: translate(-50%) rotateZ(14deg);
+}
+
+.tech-stack__line {
+  display: flex;
+}
+
+.tech-stack__logo-wrapper {
+  padding-left: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
+
+.tech-stack svg {
+  transform: rotateZ(14deg);
+}
+
+.tech-stack--b svg {
+  transform: rotateZ(-14deg);
+}
+
+@media screen and (max-width: 767px) {
+  .tech-stack__logo-wrapper {
+    padding-left: 50px;
+    gap: 50px;
+  }
+}

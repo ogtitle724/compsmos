@@ -11,11 +11,15 @@
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^6.1.0",
     "ckeditor5-custom-build": "file:ckeditor5",
+    "mongoose": "^8.0.1",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^4.12.0",
+    "three": "^0.159.0"
   },
   "devDependencies": {
+    "dat.gui": "^0.7.9",
     "eslint": "^8",
     "eslint-config-next": "14.0.1"
   }

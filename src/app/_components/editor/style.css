@@ -1,0 +1,8 @@
+.ck.ck-editor__editable {
+  height: 70vh;
+  overflow-y: auto;
+}
+
+.ck.ck-editor__editable ul {
+  padding: 10px 0 10px 30px;
+}

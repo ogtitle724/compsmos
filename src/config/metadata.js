@@ -8,8 +8,7 @@ export const metadata = {
   alternates: {
     canonical: "/",
     languages: {
-      "ko-KR": "/ko-KR",
-      "en-US": "/en-US",
+      "ko-KR": process.env.URL,
     },
   },
   openGraph: {
@@ -64,5 +63,9 @@ export const metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  other: {
+    "google-site-verification": null,
+    "naver-site-verification": null,
   },
 };

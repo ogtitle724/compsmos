@@ -1,5 +1,7 @@
+"use client";
 import ClassicEditor from "ckeditor5-custom-build/build/ckeditor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
+import "./style.css";
 
 export default function Editor({
   ckRef,

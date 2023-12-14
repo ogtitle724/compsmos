@@ -1,0 +1,19 @@
+.write__title {
+  width: 100vw;
+  height: 50px;
+  margin: 10px 0;
+  padding-left: 10px;
+  background-color: var(--color-smoke);
+  font-weight: 500;
+}
+
+.write__btn-wrapper {
+  display: flex;
+  gap: 16px;
+  bottom: 25px;
+}
+
+.write__btn {
+  width: fit-content;
+  padding: 5px;
+}

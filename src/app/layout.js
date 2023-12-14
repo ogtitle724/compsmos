@@ -11,16 +11,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
-        <Script
-          type="module"
-          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-        />
-        <Script
-          nomodule
-          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-        />
+        <Script src="/scripts/scrollsmoother.js" />
       </body>
     </html>
   );

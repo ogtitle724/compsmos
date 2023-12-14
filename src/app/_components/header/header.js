@@ -1,33 +1,41 @@
 "use client";
 import Link from "next/link";
-import Logo from "@comp/logo/logo";
 import Menu from "@comp/menu/menu";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import "./style.css";
 
-export default function Headers() {
+function Header() {
+  console.log("HEADER");
   const header = useRef();
+  const [isMenuShow, setIsMenuShow] = useState(false);
 
-  /* useEffect(() => {
-    if (header.current) {
-      window.addEventListener("wheel", (e) => {
+  useEffect(() => {
+    if (header && header.current) {
+      const wheelEvent = (e) => {
+        if (isMenuShow) return;
+
         if (e.deltaY >= 0) {
-          header.current.style.top = "-50px";
+          header.current.style.transform = `translateY(-${header.current.offsetHeight}px)`;
+          header.current.style.opacity = 0;
         } else {
-          header.current.style.top = "0px";
+          header.current.style.transform = `translateY(0px)`;
+          header.current.style.opacity = 1;
         }
-      });
+      };
+
+      window.addEventListener("wheel", wheelEvent);
+
+      return () => window.removeEventListener("wheel", wheelEvent);
     }
-  }, []); */
+  }, [isMenuShow]);
 
   return (
-    <header ref={header} className="header cx">
+    <header ref={header} className="header">
       <Link href={"/"} className="header__logo">
-        <Logo />
-        <span className="tl header__title">compsmos</span>
+        <span className="header__title">{process.env.NEXT_PUBLIC_TITLE}</span>
       </Link>
-
-      <Menu header={header} />
+      <Menu isMenuShow={isMenuShow} setIsMenuShow={setIsMenuShow} />
     </header>
   );
 }
+export default memo(Header);
