@@ -25,12 +25,10 @@ export default function Page() {
           <AboutMe />
           <TSCard />
         </section>
-        <TechStack />
         <section className="projects">
           <h2 hidden>projects</h2>
           <ProjectList />
         </section>
-        <TechStack />
         <section className="components">
           <h2 hidden>components</h2>
           <Comps />
