@@ -29,7 +29,6 @@ let maxY = document.documentElement.scrollHeight - window.innerHeight;
 let dir = null;
 
 window.addEventListener("resize", () => {
-  console.log("resize");
   maxY = document.documentElement.scrollHeight - window.innerHeight;
 });
 

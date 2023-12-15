@@ -19,9 +19,10 @@ export default function useChatObserver() {
               element.classList.remove("chatbox--loading");
               element.classList.add("chatbox--showtext");
               loadingNode.classList.add("loading--hide");
+              chatNode.classList.remove("chat--hide");
               chatNode.classList.add("chat--show");
-            }, 1500 + Math.random() * 1000);
-          }, 1000 * id + (id - 1) * 800);
+            }, 1300 + Math.random() * 700);
+          }, 2000 * id);
 
           observerInstance.unobserve(element);
         }

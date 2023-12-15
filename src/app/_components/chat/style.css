@@ -13,30 +13,27 @@
   max-width: 80vw;
   min-height: 45px;
   margin: 20px 0;
-  padding-bottom: 3px;
   position: relative;
   border-radius: 35px 35px 35px 0;
   background-color: #f8eb83;
   font-size: 22px;
   font-weight: 600;
   color: black;
-  overflow: hidden;
   transition-property: width, height;
-  transition-duration: 0.3s;
+  transition-duration: 0.4s;
   transition-timing-function: ease-out;
+  overflow: hidden;
 }
 
 .chatbox--loading {
   width: 100px;
-  opacity: 1;
   animation: flow 1.6s ease-in-out infinite;
 }
 
 .chatbox--showtext {
   width: fit-content;
-  height: fit-content;
+  min-width: 100px;
   padding: 10px 20px;
-  opacity: 1;
 }
 
 @keyframes flow {
@@ -54,17 +51,19 @@
 }
 
 .chat {
+  width: fit-content;
+  display: block;
+  opacity: 0;
   transition: 0.3s;
 }
 
 .chat--hide {
-  display: none;
-  opacity: 0;
+  font-size: 0 !important;
 }
 
 .chat--show {
   display: block;
-  animation: show 0.2s 0.3s ease-in forwards;
+  animation: show 0.2s 0.2s ease-in forwards;
 }
 
 @keyframes show {
@@ -79,11 +78,9 @@
   align-items: center;
   gap: 10px;
   transition: 0.3s;
-  opacity: 1;
 }
 
 .loading--hide {
-  opacity: 0;
   display: none;
 }
 

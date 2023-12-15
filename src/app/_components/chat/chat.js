@@ -20,7 +20,7 @@ function AboutMe() {
   return (
     <section ref={chatContainer} className="aboutme">
       {aboutMe.map((chatData, idx) => {
-        return <ChatBox key={"chat-" + idx} id={idx + 1} message={chatData} />;
+        return <ChatBox key={"chat-" + idx} id={idx} message={chatData} />;
       })}
     </section>
   );
