@@ -24,6 +24,7 @@
   height: 100dvh;
   padding: 20px 0;
   opacity: 1;
+  transition: height 0.3s;
 }
 
 .menu__section-wrapper {
