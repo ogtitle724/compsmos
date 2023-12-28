@@ -16,8 +16,8 @@ class Particle {
     this.force = 0;
     this.angle = 0;
     this.distance = 0;
-    this.friction = Math.random() * 0.6 + 0.23;
-    this.ease = Math.random() * 0.1 + 0.05;
+    this.friction = Math.random() * 0.6 + 0.15;
+    this.ease = Math.random() * 0.1 + 0.03;
   }
 
   draw() {
