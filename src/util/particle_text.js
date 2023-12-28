@@ -2,7 +2,7 @@ class Particle {
   constructor(CTX, x, y, color) {
     this.CTX = CTX;
     this.x = Math.random() * this.CTX.canvasWidth;
-    this.y = 0;
+    this.y = Math.random() * this.CTX.canvasHeight;
 
     this.originX = x;
     this.originY = y;
@@ -17,7 +17,7 @@ class Particle {
     this.angle = 0;
     this.distance = 0;
     this.friction = Math.random() * 0.6 + 0.15;
-    this.ease = Math.random() * 0.1 + 0.03;
+    this.ease = Math.random() * 0.1 + 0.02;
   }
 
   draw() {
@@ -31,7 +31,7 @@ class Particle {
     this.distance = this.dx * this.dx + this.dy * this.dy;
     this.force = -this.CTX.mouse.r / this.distance;
 
-    if (this.distance < this.CTX.mouse.r && this.distance > 100) {
+    if (this.distance < this.CTX.mouse.r && this.distance > 50) {
       this.angle = Math.atan2(this.dy, this.dx);
       this.vx += this.force * Math.cos(this.angle);
       this.vy += this.force * Math.sin(this.angle);
@@ -48,7 +48,7 @@ class CTX {
     this.canvasWidth = width;
     this.canvasHeight = height;
     this.particles = [];
-    this.step = 2;
+    this.step = 1;
 
     this.text = null;
     this.mouse = {
@@ -75,7 +75,7 @@ class CTX {
       this.canvasWidth - 30,
       this.canvasHeight
     );
-    gradient.addColorStop(0, "#ffd89b");
+    gradient.addColorStop(0, "#ffd17b");
     gradient.addColorStop(0.8, "#19547b");
     gradient.addColorStop(1, "#19227b");
     return gradient;
@@ -86,16 +86,16 @@ class CTX {
     let fontSize = null;
 
     if (browserWidth > 1023) {
-      fontSize = 150;
-      this.mouse.r = 20000;
-      this.step = 2;
+      fontSize = 100;
+      this.mouse.r = 12000;
+      this.step = 1;
     } else if (browserWidth > 768) {
-      fontSize = 120;
-      this.mouse.r = 16000;
-      this.step = 2;
+      fontSize = 90;
+      this.mouse.r = 12000;
+      this.step = 1;
     } else if (browserWidth > 479) {
       fontSize = 70;
-      this.mouse.r = 12000;
+      this.mouse.r = 10000;
       this.step = 1;
     } else {
       fontSize = 50;
@@ -107,14 +107,12 @@ class CTX {
 
     this.text = text;
     this.ctx.fillStyle = this.getGradient();
-    this.ctx.strokeStyle = "black";
-    this.ctx.lineWidth = 1.5;
     this.ctx.font = `500 ${fontSize}px ${fontFamily}`;
     this.ctx.textAlign = "center";
     this.ctx.textBaseline = "middle";
 
     const words = text.split(" ");
-    const maxWidth = this.canvasWidth * 0.9;
+    const maxWidth = Math.min(700, this.canvasWidth * 0.7);
     const lineArray = [""];
 
     for (let word of words) {
@@ -132,11 +130,6 @@ class CTX {
 
     lineArray.forEach((line, idx) => {
       this.ctx.fillText(
-        line.slice(0, -1),
-        this.canvasWidth / 2,
-        initialBaseLine + lineHeight * idx
-      );
-      this.ctx.strokeText(
         line.slice(0, -1),
         this.canvasWidth / 2,
         initialBaseLine + lineHeight * idx
@@ -161,8 +154,9 @@ class CTX {
     for (let y = 0; y < this.canvasHeight; y += this.step) {
       for (let x = 0; x < this.canvasWidth; x += this.step) {
         const pixelIdx = (y * this.canvasWidth + x) * 4;
+        const alpha = pixels[pixelIdx + 3];
 
-        if (pixels[pixelIdx + 3] > 0) {
+        if (alpha > 10) {
           const color = `rgb(${pixels[pixelIdx]}, ${pixels[pixelIdx + 1]}, ${
             pixels[pixelIdx + 2]
           })`;
@@ -181,7 +175,6 @@ class CTX {
   }
 
   animate() {
-    console.log("anmation");
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.render();
     requestAnimationFrame(this.animate.bind(this));

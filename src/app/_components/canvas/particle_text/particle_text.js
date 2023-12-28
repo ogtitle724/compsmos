@@ -26,6 +26,16 @@ function ParticleText() {
           ctx.current.mouse.y = e.offsetY;
         });
 
+        containerRef.current.addEventListener("touchmove", (e) => {
+          const touch = e.touches[0];
+          const rect = e.target.getBoundingClientRect();
+          const offsetX = touch.clientX - rect.left;
+          const offsetY = touch.clientY - rect.top;
+
+          ctx.current.mouse.x = offsetX;
+          ctx.current.mouse.y = offsetY;
+        });
+
         window.addEventListener("resize", () => {
           canvas.width = containerRef.current.offsetWidth;
           canvas.height = containerRef.current.offsetHeight;
