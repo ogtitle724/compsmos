@@ -21,7 +21,7 @@
 }
 
 .menu--show {
-  height: 100dvh;
+  height: 100vh;
   padding: 20px 0;
   opacity: 1;
   transition: height 0.3s;

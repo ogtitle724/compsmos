@@ -58,17 +58,13 @@ function TSCard() {
     if (infoRef.current && cardRef.current) {
       cardRef.current.addEventListener("mouseenter", (e) => {
         e.stopPropagation();
-        console.log("enter", e.target);
         infoRef.current.style.display = "block";
       });
       cardRef.current.addEventListener("mouseleave", (e) => {
         e.stopPropagation();
-
-        console.log("leave", e.target);
         infoRef.current.style.display = "none";
       });
       cardRef.current.addEventListener("mousemove", (e) => {
-        console.log(e.pageY, e.pageX);
         infoRef.current.style.top = `${e.clientY}px`;
         infoRef.current.style.left = `${e.clientX}px`;
       });

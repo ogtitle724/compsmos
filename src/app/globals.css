@@ -20,39 +20,33 @@
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-shadow-inset: rgba(0, 0, 0, 0.03);
 
-  --color-body: white;
+  --color-body: rgb(0, 0, 0);
   --color-main: rgb(255, 145, 20);
-  --color-font: black;
+  --color-font: rgb(255, 255, 255);
   --color-smoke: whitesmoke;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-body: rgb(59, 59, 59);
-    --color-main: rgb(255, 145, 20);
-    --color-font: white;
-    --color-smoke: rgb(95, 95, 95);
-  }
-
-  html {
-    color-scheme: dark;
-  }
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
 }
 
 *::-webkit-scrollbar {
   display: none;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
-  width: 100vw;
-  height: fit-content;
+  min-height: 100vh;
   background-color: var(--color-body);
+  color: white;
 }
 
 a {
@@ -68,6 +62,7 @@ button {
   height: 30px;
   border: none;
   background-color: transparent;
+  color: white;
 }
 
 input {

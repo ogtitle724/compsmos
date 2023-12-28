@@ -2,7 +2,7 @@
 import Link from "next/link";
 import topics from "@/config/topic";
 import ToggleBtn from "@comp/btns/toggle/toggleBtn";
-import { memo, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import "./style.css";
 
@@ -10,6 +10,17 @@ function Menu(props) {
   console.log("MENU");
   const nav = useRef();
   const path = usePathname().slice(1);
+
+  useEffect(() => {
+    if (nav.current) {
+      nav.current.addEventListener("scroll", () => {
+        console.log("scroll");
+      });
+      nav.current.addEventListener("wheel", () => {
+        console.log("wheel");
+      });
+    }
+  }, []);
 
   return (
     <>

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Menu from "@comp/menu/menu";
+import { MemoIconOpen, MemoIconCodepen, MemoIconGithub } from "@/util/icons";
 import { useState, useEffect, useRef, memo } from "react";
 import "./style.css";
 
@@ -31,10 +31,18 @@ function Header() {
 
   return (
     <header ref={header} className="header">
-      <Link href={"/"} className="header__logo">
-        <span className="header__title">{process.env.NEXT_PUBLIC_TITLE}</span>
+      <Link href={"#"} className="tm header__link">
+        github
       </Link>
-      <Menu isMenuShow={isMenuShow} setIsMenuShow={setIsMenuShow} />
+      <Link href={"#"} className="tm header__link">
+        codepen
+      </Link>
+      <Link href={"#"} className="tm header__link">
+        blog
+      </Link>
+      <Link href={"#"} className="tm header__link">
+        contact
+      </Link>
     </header>
   );
 }

@@ -9,6 +9,7 @@ import {
   IoLogoVercel,
   IoLogoHtml5,
   IoLogoCss3,
+  IoLogoCodepen,
 } from "react-icons/io5";
 import { TbBrandNextjs } from "react-icons/tb";
 import {
@@ -18,6 +19,7 @@ import {
   SiThreedotjs,
 } from "react-icons/si";
 import { FaGitAlt } from "react-icons/fa";
+import { MdOutlineOpenInNew } from "react-icons/md";
 
 function IconHtml(props) {
   return <IoLogoHtml5 size={props.size} color={"#dd4b25"} />;
@@ -71,6 +73,14 @@ function IconGit(props) {
   return <FaGitAlt size={props.size} color={"#e94e31"} />;
 }
 
+function IconCodepen(props) {
+  return <IoLogoCodepen size={props.size} color={"#000000"} />;
+}
+
+function IconOpen(props) {
+  return <MdOutlineOpenInNew size={props.size} color={"#000000"} />;
+}
+
 export const MemoIconHtml = memo(IconHtml);
 export const MemoIconCss = memo(IconCss);
 export const MemoIconJs = memo(IconJs);
@@ -84,3 +94,5 @@ export const MemoIconAws = memo(IconAws);
 export const MemoIconVercel = memo(IconVercel);
 export const MemoIconGithub = memo(IconGithub);
 export const MemoIconGit = memo(IconGit);
+export const MemoIconCodepen = memo(IconCodepen);
+export const MemoIconOpen = memo(IconOpen);

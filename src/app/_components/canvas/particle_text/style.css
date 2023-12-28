@@ -1,0 +1,19 @@
+.particle-text {
+  flex-grow: 1;
+  width: 100vw;
+  height: 500px;
+}
+
+.particle-text__canvas {
+  background-color: var(--color-body);
+}
+
+.particle-text input {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
