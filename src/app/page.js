@@ -1,21 +1,12 @@
-import AboutMe from "@comp/chat/chat";
-import TechStack from "@comp/tech_stack/tech_stack";
-import ProjectList from "@comp/project_list/project_list";
-import Comps from "@comp/comps/comps";
-import Posts from "@comp/posts/posts";
-import { metadata as meta } from "@/config/metadata";
-import "./style.css";
-import TSCard from "./_components/card/tech_stack/tech_stack";
-import Image from "next/image";
 import TechCard from "./_components/card/tech/tech_card";
 import ParticleText from "./_components/canvas/particle_text/particle_text";
+import { metadata as meta } from "@/config/metadata";
+import "./style.css";
 
-meta.title.absolute = `< ${process.env.title} > | daily log | web dev basic | web component | fix error`;
+meta.title.absolute = `${process.env.TITLE} | Front-End | Web Developer`;
 export const metadata = meta;
 
 export default function Page() {
-  const size = 18;
-
   return (
     <>
       <main className="main">
@@ -41,7 +32,6 @@ export default function Page() {
         </section>
         <section className="projects">
           <h2 hidden>projects</h2>
-          {/* <ProjectList /> */}
         </section>
       </main>
       <footer></footer>
