@@ -43,18 +43,6 @@ export default function Page() {
           <h2 hidden>projects</h2>
           {/* <ProjectList /> */}
         </section>
-        <section className="components">
-          <h2 hidden>components</h2>
-          {/* <Comps /> */}
-        </section>
-        <section className="posts">
-          <h2 hidden>popular posts</h2>
-          {/* <Posts title="popular posts" /> */}
-        </section>
-        <section className="posts">
-          <h2 hidden>recent posts</h2>
-          {/* <Posts title="recent posts" /> */}
-        </section>
       </main>
       <footer></footer>
     </>

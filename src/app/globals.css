@@ -1,5 +1,4 @@
 :root {
-  --font-t: 20px;
   --font-l: 24px;
   --font-m: 16px;
   --font-s: 14px;
@@ -27,6 +26,16 @@
   --color-smoke: whitesmoke;
 }
 
+@media screen and (max-width: 767px) {
+  :root {
+    --font-l: 18px;
+    --font-m: 16px;
+    --font-s: 14px;
+    --font-vs: 12px;
+    --header-height: 43px;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -36,9 +45,9 @@
   outline: none !important;
 }
 
-/* *::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
-} */
+}
 
 html {
   overflow: hidden;
@@ -89,36 +98,25 @@ input {
   transform: translateY(-50%);
 }
 
-.tt {
-  line-height: calc(var(--font-t) + 4px);
-  font-size: var(--font-t);
-  font-weight: 700;
-  color: var(--color-font);
-}
-
 .tl {
-  line-height: calc(var(--font-l) + 4px);
   font-size: var(--font-l);
   font-weight: 500;
   color: var(--color-font);
 }
 
 .tl-b {
-  line-height: calc(var(--font-l) + 4px);
   font-size: var(--font-l);
   font-weight: 600;
   color: var(--color-font);
 }
 
 .tm {
-  line-height: calc(var(--font-m) + 4px);
   font-size: var(--font-m);
   font-weight: 400;
   color: var(--color-font);
 }
 
 .ts {
-  line-height: calc(var(--font-s) + 4px);
   font-size: var(--font-s);
   font-weight: 300;
   color: var(--color-font);
@@ -135,16 +133,4 @@ input {
   color: white;
   text-align: center;
   text-transform: uppercase;
-}
-
-@media screen and (max-width: 767px) {
-  :root {
-    --font-t: 20px;
-    --font-l: 16px;
-    --font-m: 14px;
-    --font-s: 14px;
-    --font-ht: 20px;
-    --font-hm: 18px;
-    --header-height: 43px;
-  }
 }
