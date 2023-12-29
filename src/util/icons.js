@@ -30,7 +30,7 @@ function IconCss(props) {
 }
 
 function IconJs(props) {
-  return <IoLogoJavascript size={props.size} color={"#ebd81c"} />;
+  return <IoLogoJavascript size={props.size} color={"#d6c618"} />;
 }
 
 function IconReact(props) {

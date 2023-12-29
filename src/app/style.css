@@ -5,6 +5,19 @@
   overflow-y: scroll;
 }
 
+.main section:not(:nth-child(2)) {
+  min-height: 100vh;
+  padding: 100px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main section:nth-child(3) {
+  border: 1px solid rgb(75, 0, 0);
+}
+
 .hero {
   width: 100vw;
   height: 100svh;
@@ -17,17 +30,13 @@
   transition: height 0.3s;
 }
 
-.hero__canvas {
-  width: 100vh;
-  height: 100vw;
-}
-
 .icon-scroll {
+  flex-basis: ;
   width: 28px;
   height: 45px;
   margin-bottom: 70px;
   position: relative;
-  border: 2px solid white;
+  border: 2px solid var(--color-guide);
   border-radius: 12px;
 }
 
@@ -40,7 +49,7 @@
   bottom: -20px;
   transform: translateX(-50%) rotate(45deg);
   border: 2px solid;
-  border-color: transparent white white transparent;
+  border-color: transparent var(--color-guide) var(--color-guide) transparent;
 }
 
 .icon-scroll__wheel {
@@ -51,8 +60,18 @@
   top: 8px;
   transform: translateX(-50%);
   border-radius: 12px;
-  background-color: white;
+  background-color: var(--color-guide);
   animation: scrolling 1.6s ease infinite;
+}
+
+.about-me__text-wrapper {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 16px;
+}
+
+.about-me__text-wrapper p {
+  margin-bottom: 7px;
 }
 
 @keyframes scrolling {

@@ -1,10 +1,9 @@
 :root {
   --font-t: 20px;
-  --font-l: 18px;
+  --font-l: 24px;
   --font-m: 16px;
   --font-s: 14px;
-  --font-ht: 25px;
-  --font-hm: 23px;
+  --font-vs: 12px;
   --header-width: 100vw;
   --header-height: 43px;
 
@@ -22,7 +21,9 @@
 
   --color-body: rgb(0, 0, 0);
   --color-main: rgb(255, 145, 20);
-  --color-font: rgb(255, 255, 255);
+  --color-sub: rgb(44, 45, 49);
+  --color-font: #c2d6bf;
+  --color-guide: white;
   --color-smoke: whitesmoke;
 }
 
@@ -35,9 +36,9 @@
   outline: none !important;
 }
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
-}
+} */
 
 html {
   overflow: hidden;
@@ -88,20 +89,6 @@ input {
   transform: translateY(-50%);
 }
 
-.ht {
-  line-height: calc(var(--font-ht) + 4px);
-  font-size: var(--font-ht);
-  font-weight: 700;
-  color: var(--color-font);
-}
-
-.hm {
-  line-height: calc(var(--font-hm) + 4px);
-  font-size: var(--font-hm);
-  font-weight: 500;
-  color: var(--color-font);
-}
-
 .tt {
   line-height: calc(var(--font-t) + 4px);
   font-size: var(--font-t);
@@ -112,7 +99,14 @@ input {
 .tl {
   line-height: calc(var(--font-l) + 4px);
   font-size: var(--font-l);
-  font-weight: 700;
+  font-weight: 500;
+  color: var(--color-font);
+}
+
+.tl-b {
+  line-height: calc(var(--font-l) + 4px);
+  font-size: var(--font-l);
+  font-weight: 600;
   color: var(--color-font);
 }
 

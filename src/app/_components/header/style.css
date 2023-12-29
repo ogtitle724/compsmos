@@ -24,4 +24,5 @@
 
 .header__link {
   text-transform: uppercase;
+  color: var(--color-guide);
 }

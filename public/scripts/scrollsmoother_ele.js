@@ -115,5 +115,11 @@ function smoothScrollSetup(element) {
   }
 }
 
-const body = document.querySelector(".main");
-smoothScrollSetup(body);
+function isMobileDevice() {
+  return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+if (!isMobileDevice()) {
+  const main = document.querySelector(".main");
+  smoothScrollSetup(main);
+}

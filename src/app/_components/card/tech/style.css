@@ -1,0 +1,73 @@
+.tech-card__wrapper {
+  width: fit-content;
+  height: fit-content;
+  margin: 20px 0;
+  padding: 20px 40px;
+  display: flex;
+  gap: 40px;
+  border-radius: 3px;
+}
+
+.tech-card {
+  width: 180px;
+  height: 135px;
+  padding: 5px 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgb(190, 189, 189);
+  background: linear-gradient(
+    90deg,
+    rgba(190, 189, 189, 1) 0%,
+    rgba(193, 193, 193, 1) 37%,
+    rgba(172, 172, 172, 1) 69%,
+    rgba(194, 194, 194, 1) 100%
+  );
+  border-radius: 4px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.13);
+  transition: scale 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at -50% 50%,
+    rgba(171, 194, 208, 0.8) 0%,
+    rgba(171, 194, 208, 0.4) 10%,
+    rgba(171, 194, 208, 0.1) 60%,
+    transparent,
+    transparent
+  );
+  mix-blend-mode: color-dodge;
+  background-size: 300%;
+  background-position: 50%;
+}
+
+.tech-card-title {
+  font-size: var(--font-vs);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-body);
+}
+
+.tech-card-body {
+  flex-grow: 1;
+  padding: 3px 0;
+}
+
+.tech-card-body li {
+  list-style: none;
+  font-size: var(--font-vs);
+  color: var(--color-body);
+}
+
+.about-me__icon-wrapper {
+  align-self: flex-end;
+  padding: 5px 8px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border-radius: 14px 3px 14px 3px;
+  background-color: rgb(228, 228, 228);
+}

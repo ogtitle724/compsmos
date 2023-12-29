@@ -7,12 +7,15 @@ import { metadata as meta } from "@/config/metadata";
 import "./style.css";
 import TSCard from "./_components/card/tech_stack/tech_stack";
 import Image from "next/image";
+import TechCard from "./_components/card/tech/tech_card";
 import ParticleText from "./_components/canvas/particle_text/particle_text";
 
 meta.title.absolute = `< ${process.env.title} > | daily log | web dev basic | web component | fix error`;
 export const metadata = meta;
 
 export default function Page() {
+  const size = 18;
+
   return (
     <>
       <main className="main">
@@ -24,10 +27,17 @@ export default function Page() {
             <div className="icon-scroll__wheel"></div>
           </div>
         </section>
-        <section className="profile">
+        <section className="about-me">
           <h2 hidden>about me</h2>
-          {/* <AboutMe />
-          <TSCard /> */}
+          <div className="about-me__text-wrapper">
+            <p className="tl">{"Hi I'm Wonje."}</p>
+            <p className="tl">A FE developer based in Seoul, Korea.</p>
+            <p className="tl">
+              I pursue impressive UX through solid and scalable code
+            </p>
+            <p className="tl">So, Check my main tech stack right below</p>
+          </div>
+          <TechCard />
         </section>
         <section className="projects">
           <h2 hidden>projects</h2>

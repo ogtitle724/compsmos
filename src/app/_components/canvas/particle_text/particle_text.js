@@ -36,6 +36,16 @@ function ParticleText() {
           ctx.current.mouse.y = offsetY;
         });
 
+        containerRef.current.addEventListener("mouseleave", () => {
+          ctx.current.mouse.x = null;
+          ctx.current.mouse.y = null;
+        });
+
+        window.addEventListener("touchend", () => {
+          ctx.current.mouse.x = null;
+          ctx.current.mouse.y = null;
+        });
+
         window.addEventListener("resize", () => {
           canvas.width = containerRef.current.offsetWidth;
           canvas.height = containerRef.current.offsetHeight;
