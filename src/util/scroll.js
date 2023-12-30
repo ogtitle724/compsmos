@@ -1,4 +1,4 @@
-function smoothScrollSetup(element) {
+export function blockScroll(element) {
   // left: 37, up: 38, right: 39, down: 40,
   // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
   const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
@@ -23,47 +23,6 @@ function smoothScrollSetup(element) {
   //check the browser's wheel event
   let wheelEvent =
     "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
-
-  let targetY = element.scrollTop;
-  let isAnimating = false;
-  let maxY = element.scrollHeight - element.clientHeight;
-  let dir = null;
-
-  element.addEventListener("resize", () => {
-    maxY = element.scrollHeight - element.clientHeight;
-  });
-
-  element.addEventListener("wheel", (e) => {
-    if (e.deltaY > 0) {
-      if (dir === 1) {
-        targetY += 100;
-      } else {
-        dir = 1;
-        targetY = element.scrollTop + 100;
-      }
-
-      if (targetY > maxY) targetY = maxY;
-
-      if (!isAnimating) {
-        smoothScroll();
-        isAnimating = true;
-      }
-    } else {
-      if (dir === -1) {
-        targetY -= 100;
-      } else {
-        dir = -1;
-        targetY = element.scrollTop - 100;
-      }
-
-      if (targetY < 0) targetY = 0;
-
-      if (!isAnimating) {
-        smoothScroll();
-        isAnimating = true;
-      }
-    }
-  });
 
   disableScroll(element);
 
@@ -90,6 +49,10 @@ function smoothScrollSetup(element) {
       return false;
     }
   }
+}
+
+function smoothScrollSetup(element) {
+  blockScroll(element);
 
   function lerp(start, end, t) {
     return start * (1 - t) + end * t;
@@ -114,13 +77,4 @@ function smoothScrollSetup(element) {
     requestAnimationFrame(scroll);
     isAnimating = true;
   }
-}
-
-function isMobileDevice() {
-  return /Mobi|Android/i.test(navigator.userAgent);
-}
-
-if (!isMobileDevice()) {
-  const main = document.querySelector(".main");
-  smoothScrollSetup(main);
 }

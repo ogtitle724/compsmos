@@ -27,10 +27,15 @@ function ParticleText() {
         });
 
         containerRef.current.addEventListener("touchmove", (e) => {
+          console.log("tm", ctx.current.boundingRect);
           const touch = e.touches[0];
           const rect = e.target.getBoundingClientRect();
           const offsetX = touch.clientX - rect.left;
           const offsetY = touch.clientY - rect.top;
+
+          if (ctx.current.isTextArea(offsetX, offsetY)) {
+            e.preventDefault();
+          }
 
           ctx.current.mouse.x = offsetX;
           ctx.current.mouse.y = offsetY;

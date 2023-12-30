@@ -56,6 +56,12 @@ class CTX {
       y: 0,
       r: 20000,
     };
+    this.boundingRect = {
+      top: this.canvasHeight,
+      bottom: 0,
+      left: this.canvasWidth,
+      right: 0,
+    };
   }
 
   showAxis() {
@@ -162,6 +168,10 @@ class CTX {
           })`;
 
           this.particles.push(new Particle(this, x, y, color));
+          this.boundingRect.top = Math.min(this.boundingRect.top, y);
+          this.boundingRect.bottom = Math.max(this.boundingRect.bottom, y);
+          this.boundingRect.right = Math.max(this.boundingRect.right, x);
+          this.boundingRect.left = Math.min(this.boundingRect.left, x);
         }
       }
     }
@@ -184,6 +194,19 @@ class CTX {
     this.canvasWidth = width;
     this.canvasHeight = height;
     this.generateParticles(this.text);
+  }
+
+  isTextArea(offsetX, offsetY) {
+    if (
+      offsetX > this.boundingRect.left - 20 &&
+      offsetY < this.boundingRect.right + 20 &&
+      offsetY > this.boundingRect.top - 20 &&
+      offsetY < this.boundingRect.bottom + 20
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
