@@ -22,63 +22,67 @@ import { FaGitAlt } from "react-icons/fa";
 import { MdOutlineOpenInNew } from "react-icons/md";
 
 function IconHtml(props) {
-  return <IoLogoHtml5 size={props.size} color={"#dd4b25"} />;
+  return <IoLogoHtml5 size={props.size} color={props.color ?? "#dd4b25"} />;
 }
 
 function IconCss(props) {
-  return <IoLogoCss3 size={props.size} color={"#2862e9"} />;
+  return <IoLogoCss3 size={props.size} color={props.color ?? "#2862e9"} />;
 }
 
 function IconJs(props) {
-  return <IoLogoJavascript size={props.size} color={"#d6c618"} />;
+  return (
+    <IoLogoJavascript size={props.size} color={props.color ?? "#d6c618"} />
+  );
 }
 
 function IconReact(props) {
-  return <IoLogoReact size={props.size} color={"#5dd2f3"} />;
+  return <IoLogoReact size={props.size} color={props.color ?? "#5dd2f3"} />;
 }
 
 function IconThree(props) {
-  return <SiThreedotjs size={props.size} color={"#000000"} />;
+  return <SiThreedotjs size={props.size} color={props.color ?? "#000000"} />;
 }
 
 function IconNext(props) {
-  return <TbBrandNextjs size={props.size} color={"#000000"} />;
+  return <TbBrandNextjs size={props.size} color={props.color ?? "#000000"} />;
 }
 
 function IconNode(props) {
-  return <IoLogoNodejs size={props.size} color={"#87bf00"} />;
+  return <IoLogoNodejs size={props.size} color={props.color ?? "#87bf00"} />;
 }
 
 function IconEx(props) {
-  return <SiExpress size={props.size} color={"#000000"} />;
+  return <SiExpress size={props.size} color={props.color ?? "#000000"} />;
 }
 
 function IconMongo(props) {
-  return <SiMongodb size={props.size} color={"#4da53f"} />;
+  return <SiMongodb size={props.size} color={props.color ?? "#4da53f"} />;
 }
 
 function IconAws(props) {
-  return <SiAmazonaws size={props.size} color={"#f79400"} />;
+  return <SiAmazonaws size={props.size} color={props.color ?? "#f79400"} />;
 }
 
 function IconVercel(props) {
-  return <IoLogoVercel size={props.size} color={"#000000"} />;
+  return <IoLogoVercel size={props.size} color={props.color ?? "#000000"} />;
 }
 
 function IconGithub(props) {
-  return <IoLogoGithub size={props.size} color={"#000000"} />;
+  return <IoLogoGithub size={props.size} color={props.color ?? "#000000"} />;
 }
 
 function IconGit(props) {
-  return <FaGitAlt size={props.size} color={"#e94e31"} />;
+  return <FaGitAlt size={props.size} color={props.color ?? "#e94e31"} />;
 }
 
 function IconCodepen(props) {
-  return <IoLogoCodepen size={props.size} color={"#000000"} />;
+  return <IoLogoCodepen size={props.size} color={props.color ?? "#000000"} />;
 }
 
 function IconOpen(props) {
-  return <MdOutlineOpenInNew size={props.size} color={"#000000"} />;
+  return (
+    <MdOutlineOpenInNew size={props.size} color={props.color ?? "#000000"} />
+  );
 }
 
 export const MemoIconHtml = memo(IconHtml);
