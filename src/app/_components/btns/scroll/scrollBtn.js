@@ -22,9 +22,12 @@ function ScrollBtn() {
   }, []);
 
   return (
-    <div ref={scrollBtnRef} className="icon-scroll">
-      <div className="icon-scroll__wheel"></div>
-    </div>
+    <>
+      <div ref={scrollBtnRef} className="icon-scroll">
+        <div className="icon-scroll__wheel"></div>
+      </div>
+      <div className="icon-scroll__dir"></div>
+    </>
   );
 }
 
