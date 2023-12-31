@@ -156,7 +156,7 @@ function TechCards() {
 
   //translate card container depend on focused idx
   useEffect(() => {
-    if (cardContainer.current) {
+    if (cardContainer.current && window.innerWidth < 768) {
       const cardWrapperWidth = cardContainer.current.children[0].offsetWidth;
       cardContainer.current.style.transform = `translateX(-${
         cardWrapperWidth * focusedCard
