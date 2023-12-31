@@ -14,16 +14,18 @@ import {
   MemoIconReact,
 } from "@/util/icons";
 import "./style.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function TechCards() {
   const cardContainer = useRef();
   const size = useRef(20);
   const color = useRef("#c2d6bf");
+  const [focusedCard, setFocusedCard] = useState(0);
 
   useEffect(() => {
     if (cardContainer.current) {
-      Array.from(cardContainer.current.children).forEach((cardWrapper) => {
+      const cardWrappers = Array.from(cardContainer.current.children);
+      cardWrappers.forEach((cardWrapper, idx) => {
         const card = cardWrapper.children[0];
 
         cardWrapper.addEventListener("mousemove", (e) => {
@@ -127,7 +129,7 @@ function TechCards() {
   }, []);
 
   return (
-    <div ref={cardContainer} className="tech-cards">
+    <section ref={cardContainer} className="tech-cards">
       <div className="tech-card__wrapper">
         <div className="tech-card">
           <div className="overlay"></div>
@@ -180,7 +182,7 @@ function TechCards() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

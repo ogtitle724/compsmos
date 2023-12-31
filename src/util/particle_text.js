@@ -1,3 +1,5 @@
+import { isMobileDevice } from "./util";
+
 class Particle {
   constructor(CTX, x, y, color) {
     this.CTX = CTX;
@@ -17,7 +19,7 @@ class Particle {
     this.angle = 0;
     this.distance = 0;
     this.friction = Math.random() * 0.6 + 0.15;
-    this.ease = Math.random() * 0.1 + 0.015;
+    this.ease = Math.random() * 0.1 + 0.02;
   }
 
   draw() {
@@ -31,7 +33,7 @@ class Particle {
     this.distance = this.dx * this.dx + this.dy * this.dy;
     this.force = -this.CTX.mouse.r / this.distance;
 
-    if (this.distance < this.CTX.mouse.r && this.distance > 50) {
+    if (this.distance < this.CTX.mouse.r) {
       this.angle = Math.atan2(this.dy, this.dx);
       this.vx += this.force * Math.cos(this.angle);
       this.vy += this.force * Math.sin(this.angle);
@@ -94,19 +96,15 @@ class CTX {
     if (browserWidth > 1023) {
       fontSize = 100;
       this.mouse.r = 12000;
-      this.step = 1;
     } else if (browserWidth > 768) {
       fontSize = 90;
       this.mouse.r = 12000;
-      this.step = 1;
     } else if (browserWidth > 479) {
       fontSize = 70;
       this.mouse.r = 10000;
-      this.step = 1;
     } else {
       fontSize = 50;
       this.mouse.r = 7000;
-      this.step = 1;
     }
 
     const lineHeight = fontSize + 10;
@@ -132,7 +130,11 @@ class CTX {
     }
 
     const textBlockHeight = (lineArray.length - 1) * lineHeight;
-    const initialBaseLine = (this.canvasHeight - textBlockHeight) / 2;
+    const initialBaseLine =
+      (this.canvasHeight -
+        textBlockHeight -
+        (isMobileDevice() ? fontSize : 0)) /
+      2;
 
     lineArray.forEach((line, idx) => {
       this.ctx.fillText(

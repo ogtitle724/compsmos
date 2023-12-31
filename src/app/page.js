@@ -15,22 +15,26 @@ export default function Page() {
         <section className="hero">
           <h2 hidden>hero section</h2>
           <ParticleText />
-          <ScrollBtn />
-        </section>
-        <section className="about-me">
-          <h2 hidden>about me</h2>
-          <div className="about-me__text-wrapper">
-            <p className="tl">{"Hi I'm Wonje."}</p>
-            <p className="tl">A FE developer based in Seoul, Korea.</p>
-            <p className="tl">
-              I pursue impressive UX through solid and scalable code
-            </p>
-            <p className="tl">So, Check my main tech stack right below</p>
+          <div className="cx hero__scroll-btn-pre">
+            <ScrollBtn />
           </div>
-          <TechCard />
         </section>
-        <section className="projects">
-          <h2 hidden>projects</h2>
+        <section className="body">
+          <section className="about-me">
+            <h2 hidden>about me</h2>
+            <div className="about-me__text-wrapper">
+              <p className="tl">{"Hi I'm Wonje."}</p>
+              <p className="tl">A FE developer based in Seoul, Korea.</p>
+              <p className="tl">
+                I pursue impressive UX through solid and scalable code
+              </p>
+              <p className="tl">So, Check my main tech stack right below</p>
+            </div>
+            <TechCard />
+          </section>
+          <section className="projects">
+            <h2 hidden>projects</h2>
+          </section>
         </section>
       </main>
       <footer></footer>

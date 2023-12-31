@@ -3,31 +3,32 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  scroll-snap-type: y proximity;
 }
 
-.main section:not(:nth-child(2)) {
+.hero {
+  width: 100vw;
+  height: 100svh;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.hero__scroll-btn-pre {
+  bottom: 50px;
+  justify-self: stretch;
+}
+
+.body {
+  scroll-snap-align: start;
+}
+
+.body > section:not(:nth-child(2)) {
   min-height: fit-content;
   padding: 100px 0;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.main section:nth-child(4) {
-  border: 1px solid rgb(75, 0, 0);
-}
-
-.hero {
-  width: 100vw;
-  height: 100svh;
-  padding-top: var(--header-height);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: height 0.3s;
 }
 
 .about-me__text-wrapper {

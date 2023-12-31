@@ -1,7 +1,9 @@
 .particle-text {
-  flex-grow: 1;
   width: 100vw;
-  height: 500px;
+  height: 90svh;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .particle-text__canvas {

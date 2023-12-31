@@ -45,12 +45,9 @@
   outline: none !important;
 }
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
-}
-
-html {
-}
+} */
 
 body {
   min-height: 100vh;
