@@ -15,7 +15,6 @@ import {
 } from "@/util/icons";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
-import { isMobileDevice } from "@/util/util";
 
 function TechCards() {
   const cardContainer = useRef();
@@ -144,7 +143,7 @@ function TechCards() {
 
       if (window.innerWidth < 768) {
         cardContainer.current.style.left = `${
-          Math.abs(width - cardWrapperWidth) / 2
+          Math.abs(window.innerWidth - cardWrapperWidth) / 2
         }px`;
         cardContainer.current.style.transform = "translateX(0)";
       } else {

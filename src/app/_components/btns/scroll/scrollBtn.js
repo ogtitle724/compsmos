@@ -23,12 +23,12 @@ function ScrollBtn() {
   }, []);
 
   return (
-    <div ref={scrollBtnRef} className="icon-scroll__wrapper">
+    <button ref={scrollBtnRef} className="icon-scroll__wrapper">
       <div className="icon-scroll">
         <div className="icon-scroll__wheel"></div>
       </div>
       <div className="icon-scroll__dir"></div>
-    </div>
+    </button>
   );
 }
 
