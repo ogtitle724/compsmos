@@ -25,33 +25,12 @@
 }
 
 .tech-card {
-  width: 220px;
+  width: 230px;
   aspect-ratio: 4/3;
   padding: 8px 12px 10px 12px;
-  position: relative;
   display: flex;
   flex-direction: column;
-  background: rgb(190, 189, 189);
-  background: linear-gradient(135deg, #ffd17b 0%, #19547b 80%, #19227b 100%);
-  border-radius: 4px;
   transition: scale 0.3s ease;
-  overflow: hidden;
-}
-
-.tech-card *:not(:nth-child(1)) {
-  z-index: 2;
-}
-
-.tech-card::before {
-  content: "";
-  width: calc(100% - 6px);
-  height: calc(100% - 6px);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 4px;
-  background-color: rgb(23, 23, 23);
 }
 
 .overlay {
@@ -88,7 +67,7 @@
   color: var(--color-font);
 }
 
-.about-me__icon-wrapper {
+.tech-card__icon-wrapper {
   align-self: flex-end;
   padding: 5px 8px;
   display: flex;

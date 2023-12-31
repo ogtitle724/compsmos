@@ -41,8 +41,8 @@ function TechCards() {
           const rect = cardWrapper.getBoundingClientRect();
           const offsetX = e.clientX - rect.left;
           const offsetY = e.clientY - rect.top;
-          const degreeX = halfWidth - offsetX;
-          const degreeY = halfHeight - offsetY;
+          const degreeX = (halfWidth - offsetX) * 0.6;
+          const degreeY = (halfHeight - offsetY) * 0.6;
 
           requestAnimationFrame(() => {
             card.style.scale = 1.1;
@@ -91,8 +91,8 @@ function TechCards() {
           const offsetY = touch.clientY - touchRect.top;
           const halfWidth = cardWrapper.offsetWidth / 2;
           const halfHeight = cardWrapper.offsetHeight / 2;
-          const degreeX = halfWidth - offsetX;
-          const degreeY = halfHeight - offsetY;
+          const degreeX = (halfWidth - offsetX) * 0.6;
+          const degreeY = (halfHeight - offsetY) * 0.6;
 
           requestAnimationFrame(() => {
             const overlay = card.children[0];
@@ -167,7 +167,7 @@ function TechCards() {
     <section className="tech-cards__wrapper">
       <div ref={cardContainer} className="tech-cards">
         <div className="tech-card__wrapper">
-          <div className="tech-card">
+          <div className="border-gradient tech-card">
             <div className="overlay"></div>
             <p className="tech-card-title">front-end</p>
             <ul className="tech-card-body">
@@ -176,7 +176,7 @@ function TechCards() {
               <li>Javascript</li>
               <li>NextJS</li>
             </ul>
-            <div className="about-me__icon-wrapper">
+            <div className="tech-card__icon-wrapper">
               <MemoIconHtml size={size.current} color={color.current} />
               <MemoIconCss size={size.current} color={color.current} />
               <MemoIconJs size={size.current} color={color.current} />
@@ -185,7 +185,7 @@ function TechCards() {
           </div>
         </div>
         <div className="tech-card__wrapper">
-          <div className="tech-card">
+          <div className="border-gradient tech-card">
             <div className="overlay"></div>
             <p className="tech-card-title">back-end</p>
             <ul className="tech-card-body">
@@ -193,7 +193,7 @@ function TechCards() {
               <li>Express</li>
               <li>NextJS</li>
             </ul>
-            <div className="about-me__icon-wrapper">
+            <div className="tech-card__icon-wrapper">
               <MemoIconNode size={size.current} color={color.current} />
               <MemoIconEx size={size.current} color={color.current} />
               <MemoIconNext size={size.current} color={color.current} />
@@ -201,7 +201,7 @@ function TechCards() {
           </div>
         </div>
         <div className="tech-card__wrapper">
-          <div className="tech-card">
+          <div className="border-gradient tech-card">
             <div className="overlay"></div>
             <p className="tech-card-title">etc</p>
             <ul className="tech-card-body">
@@ -210,7 +210,7 @@ function TechCards() {
               <li>Git</li>
               <li>Github</li>
             </ul>
-            <div className="about-me__icon-wrapper">
+            <div className="tech-card__icon-wrapper">
               <MemoIconAws size={size.current} color={color.current} />
               <MemoIconMongo size={size.current} color={color.current} />
               <MemoIconGit size={size.current} color={color.current} />

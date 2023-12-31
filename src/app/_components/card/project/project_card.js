@@ -31,8 +31,11 @@ function ProjectCard(props) {
         />
       </div>
       <div className="p-card__text-data">
-        <h3 className="ht p-card__title">{props.title}</h3>
-        <p className="hm p-card__descr">{props.description}</p>
+        <h3 className="ht p-card__title">{props.title ?? "this is title"}</h3>
+        <p className="hm p-card__descr">
+          {props.description ??
+            "thisdk l dlskfl ekjdl ksldf jfejdskldf jk lkdsjlfk edlkjs flekj dlskjf jelklds "}
+        </p>
       </div>
       <div className="p-card__icon-wrapper">{props.children}</div>
       <div className="p-card__btn-wrapper">

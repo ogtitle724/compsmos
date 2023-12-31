@@ -1,6 +1,7 @@
 :root {
-  --font-l: 30px;
-  --font-m: 16px;
+  --font-vl: 30px;
+  --font-l: 22px;
+  --font-m: 18px;
   --font-s: 14px;
   --font-vs: 12px;
   --header-width: 100vw;
@@ -28,7 +29,8 @@
 
 @media screen and (max-width: 479px) {
   :root {
-    --font-l: 16px;
+    --font-vl: 20px;
+    --font-l: 18px;
     --font-m: 16px;
     --font-s: 14px;
     --font-vs: 12px;
@@ -45,9 +47,9 @@
   outline: none !important;
 }
 
-/* *::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
-} */
+}
 
 body {
   min-height: 100vh;
@@ -93,6 +95,18 @@ input {
   transform: translateY(-50%);
 }
 
+.tvl {
+  font-size: var(--font-vl);
+  font-weight: 500;
+  color: var(--color-font);
+}
+
+.tvl-b {
+  font-size: var(--font-l);
+  font-weight: 600;
+  color: var(--color-font);
+}
+
 .tl {
   font-size: var(--font-l);
   font-weight: 500;
@@ -128,4 +142,29 @@ input {
   color: white;
   text-align: center;
   text-transform: uppercase;
+}
+
+.border-gradient {
+  position: relative;
+  background: rgb(190, 189, 189);
+  background: linear-gradient(135deg, #ffd17b 0%, #19547b 80%, #19227b 100%);
+  border-radius: 4px;
+  transition: scale 0.3s ease;
+  overflow: hidden;
+}
+
+.border-gradient * {
+  z-index: 2;
+}
+
+.border-gradient::before {
+  content: "";
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  background-color: rgb(23, 23, 23);
 }
