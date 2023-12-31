@@ -85,8 +85,6 @@ function TechCards() {
           const degreeX = halfWidth - offsetX;
           const degreeY = halfHeight - offsetY;
 
-          console.log(e.target);
-
           requestAnimationFrame(() => {
             const overlay = card.children[0];
 

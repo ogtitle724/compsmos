@@ -2,6 +2,7 @@ import TechCard from "./_components/card/tech/tech_card";
 import ParticleText from "./_components/canvas/particle_text/particle_text";
 import { metadata as meta } from "@/config/metadata";
 import "./style.css";
+import ScrollBtn from "./_components/btns/scroll/scrollBtn";
 
 meta.title.absolute = `${process.env.TITLE} | Front-End | Web Developer`;
 export const metadata = meta;
@@ -14,9 +15,7 @@ export default function Page() {
         <section className="hero">
           <h2 hidden>hero section</h2>
           <ParticleText />
-          <div className="icon-scroll">
-            <div className="icon-scroll__wheel"></div>
-          </div>
+          <ScrollBtn />
         </section>
         <section className="about-me">
           <h2 hidden>about me</h2>

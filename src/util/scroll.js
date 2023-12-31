@@ -30,13 +30,13 @@ export function blockScroll(element) {
     element.addEventListener("DOMMouseScroll", preventDefault, false);
     element.addEventListener(wheelEvent, preventDefault, wheelOpt);
     element.addEventListener("keydown", preventDefaultForScrollKeys, false);
-    //window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+    window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
   }
 
   function enableScroll(element) {
     element.removeEventListener("DOMMouseScroll", preventDefault, false);
     element.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-    //element.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+    element.removeEventListener("keydown", preventDefaultForScrollKeys, false);
   }
 
   function preventDefault(e) {

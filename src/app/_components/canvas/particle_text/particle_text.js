@@ -2,6 +2,8 @@
 import CTX from "@/util/particle_text";
 import { useEffect, useRef, useState } from "react";
 import "./style.css";
+import { blockScroll } from "@/util/scroll";
+import { isMobileDevice } from "@/util/util";
 
 function ParticleText() {
   const canvasRef = useRef();
@@ -15,6 +17,11 @@ function ParticleText() {
       canvas.height = containerRef.current.offsetHeight;
 
       if (!ctx.current) {
+        if (isMobileDevice()) {
+          console.log("mobile");
+          blockScroll(containerRef.current);
+        }
+
         ctx.current = new CTX(
           canvas.getContext("2d", { willReadFrequently: true }),
           containerRef.current.offsetWidth,

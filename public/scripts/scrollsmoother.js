@@ -119,7 +119,8 @@ function smoothScrollSetup(element) {
 function isMobileDevice() {
   return /Mobi|Android/i.test(navigator.userAgent);
 }
-
+const main = document.querySelector(".main");
+smoothScrollSetup(main);
 if (!isMobileDevice()) {
   const main = document.querySelector(".main");
   smoothScrollSetup(main);

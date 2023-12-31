@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
-        {/* <Script src="/scripts/scrollsmoother.js" /> */}
+        {/* <Script src="../utill/scrollsmoother.js" /> */}
       </body>
     </html>
   );
