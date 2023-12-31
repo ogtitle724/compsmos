@@ -77,13 +77,15 @@ function TechCards() {
           e.preventDefault();
 
           const touch = e.touches[0];
-          const touchRect = e.target.getBoundingClientRect();
+          const touchRect = cardWrapper.getBoundingClientRect();
           const offsetX = touch.clientX - touchRect.left;
           const offsetY = touch.clientY - touchRect.top;
           const halfWidth = cardWrapper.offsetWidth / 2;
           const halfHeight = cardWrapper.offsetHeight / 2;
           const degreeX = halfWidth - offsetX;
           const degreeY = halfHeight - offsetY;
+
+          console.log(e.target);
 
           requestAnimationFrame(() => {
             const overlay = card.children[0];

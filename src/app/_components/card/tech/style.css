@@ -11,7 +11,7 @@
 .tech-card__wrapper {
   width: fit-content;
   height: fit-content;
-  padding: 20px;
+  padding: 16px;
 }
 
 .tech-card {
@@ -24,7 +24,7 @@
   background: rgb(190, 189, 189);
   background: linear-gradient(135deg, #ffd17b 0%, #19547b 80%, #19227b 100%);
   border-radius: 4px;
-  transition: scale 0.5s ease;
+  transition: scale 0.3s ease;
   overflow: hidden;
 }
 

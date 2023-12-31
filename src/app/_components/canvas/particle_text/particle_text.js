@@ -27,7 +27,6 @@ function ParticleText() {
         });
 
         containerRef.current.addEventListener("touchmove", (e) => {
-          console.log("tm", ctx.current.boundingRect);
           const touch = e.touches[0];
           const rect = e.target.getBoundingClientRect();
           const offsetX = touch.clientX - rect.left;
