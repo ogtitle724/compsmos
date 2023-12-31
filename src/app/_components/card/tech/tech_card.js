@@ -15,17 +15,25 @@ import {
 } from "@/util/icons";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
+import { isMobileDevice } from "@/util/util";
 
 function TechCards() {
   const cardContainer = useRef();
   const size = useRef(20);
   const color = useRef("#c2d6bf");
   const [focusedCard, setFocusedCard] = useState(0);
+  const [width, setWidth] = useState(null);
 
+  //set initial eventListeners(3d card rotation, window resize)
   useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+
     if (cardContainer.current) {
       const cardWrappers = Array.from(cardContainer.current.children);
-      cardWrappers.forEach((cardWrapper, idx) => {
+
+      cardWrappers.forEach((cardWrapper) => {
         const card = cardWrapper.children[0];
 
         cardWrapper.addEventListener("mousemove", (e) => {
@@ -128,60 +136,106 @@ function TechCards() {
     }
   }, []);
 
+  //adjust card container(cards) translate degree
+  useEffect(() => {
+    if (cardContainer.current) {
+      const cardWrappers = Array.from(cardContainer.current.children);
+      const cardWrapperWidth = cardWrappers[0].offsetWidth;
+
+      if (window.innerWidth < 768) {
+        cardContainer.current.style.left = `${
+          Math.abs(width - cardWrapperWidth) / 2
+        }px`;
+        cardContainer.current.style.transform = "translateX(0)";
+      } else {
+        cardContainer.current.style.left = "50%";
+        cardContainer.current.style.transform = "translateX(-50%)";
+      }
+    }
+  }, [width]);
+
+  //translate card container depend on focused idx
+  useEffect(() => {
+    if (cardContainer.current) {
+      const cardWrapperWidth = cardContainer.current.children[0].offsetWidth;
+      cardContainer.current.style.transform = `translateX(-${
+        cardWrapperWidth * focusedCard
+      }px)`;
+    }
+  }, [focusedCard]);
+
   return (
-    <section ref={cardContainer} className="tech-cards">
-      <div className="tech-card__wrapper">
-        <div className="tech-card">
-          <div className="overlay"></div>
-          <p className="tech-card-title">front-end</p>
-          <ul className="tech-card-body">
-            <li>Html</li>
-            <li>Css</li>
-            <li>Javascript</li>
-            <li>NextJS</li>
-          </ul>
-          <div className="about-me__icon-wrapper">
-            <MemoIconHtml size={size.current} color={color.current} />
-            <MemoIconCss size={size.current} color={color.current} />
-            <MemoIconJs size={size.current} color={color.current} />
-            <MemoIconReact size={size.current} color={color.current} />
+    <section className="tech-cards__wrapper">
+      <div ref={cardContainer} className="tech-cards">
+        <div className="tech-card__wrapper">
+          <div className="tech-card">
+            <div className="overlay"></div>
+            <p className="tech-card-title">front-end</p>
+            <ul className="tech-card-body">
+              <li>Html</li>
+              <li>Css</li>
+              <li>Javascript</li>
+              <li>NextJS</li>
+            </ul>
+            <div className="about-me__icon-wrapper">
+              <MemoIconHtml size={size.current} color={color.current} />
+              <MemoIconCss size={size.current} color={color.current} />
+              <MemoIconJs size={size.current} color={color.current} />
+              <MemoIconReact size={size.current} color={color.current} />
+            </div>
+          </div>
+        </div>
+        <div className="tech-card__wrapper">
+          <div className="tech-card">
+            <div className="overlay"></div>
+            <p className="tech-card-title">back-end</p>
+            <ul className="tech-card-body">
+              <li>NodeJS</li>
+              <li>Express</li>
+              <li>NextJS</li>
+            </ul>
+            <div className="about-me__icon-wrapper">
+              <MemoIconNode size={size.current} color={color.current} />
+              <MemoIconEx size={size.current} color={color.current} />
+              <MemoIconNext size={size.current} color={color.current} />
+            </div>
+          </div>
+        </div>
+        <div className="tech-card__wrapper">
+          <div className="tech-card">
+            <div className="overlay"></div>
+            <p className="tech-card-title">etc</p>
+            <ul className="tech-card-body">
+              <li>AWS</li>
+              <li>MongoDB</li>
+              <li>Git</li>
+              <li>Github</li>
+            </ul>
+            <div className="about-me__icon-wrapper">
+              <MemoIconAws size={size.current} color={color.current} />
+              <MemoIconMongo size={size.current} color={color.current} />
+              <MemoIconGit size={size.current} color={color.current} />
+              <MemoIconGithub size={size.current} color={color.current} />
+            </div>
           </div>
         </div>
       </div>
-      <div className="tech-card__wrapper">
-        <div className="tech-card">
-          <div className="overlay"></div>
-          <p className="tech-card-title">back-end</p>
-          <ul className="tech-card-body">
-            <li>NodeJS</li>
-            <li>Express</li>
-            <li>NextJS</li>
-          </ul>
-          <div className="about-me__icon-wrapper">
-            <MemoIconNode size={size.current} color={color.current} />
-            <MemoIconEx size={size.current} color={color.current} />
-            <MemoIconNext size={size.current} color={color.current} />
-          </div>
+      {window.innerWidth < 768 && (
+        <div className="cx tech-cards__btn-nav">
+          <button
+            onClick={() => setFocusedCard(0)}
+            aria-label="show fe card"
+          ></button>
+          <button
+            onClick={() => setFocusedCard(1)}
+            aria-label="show be card"
+          ></button>
+          <button
+            onClick={() => setFocusedCard(2)}
+            aria-label="show etc card"
+          ></button>
         </div>
-      </div>
-      <div className="tech-card__wrapper">
-        <div className="tech-card">
-          <div className="overlay"></div>
-          <p className="tech-card-title">etc</p>
-          <ul className="tech-card-body">
-            <li>AWS</li>
-            <li>MongoDB</li>
-            <li>Git</li>
-            <li>Github</li>
-          </ul>
-          <div className="about-me__icon-wrapper">
-            <MemoIconAws size={size.current} color={color.current} />
-            <MemoIconMongo size={size.current} color={color.current} />
-            <MemoIconGit size={size.current} color={color.current} />
-            <MemoIconGithub size={size.current} color={color.current} />
-          </div>
-        </div>
-      </div>
+      )}
     </section>
   );
 }

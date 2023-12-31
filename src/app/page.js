@@ -1,8 +1,12 @@
-import TechCard from "./_components/card/tech/tech_card";
 import ParticleText from "./_components/canvas/particle_text/particle_text";
 import { metadata as meta } from "@/config/metadata";
 import "./style.css";
 import ScrollBtn from "./_components/btns/scroll/scrollBtn";
+import dynamic from "next/dynamic";
+
+const TechCard = dynamic(() => import("@comp/card/tech/tech_card"), {
+  ssr: false,
+});
 
 meta.title.absolute = `${process.env.TITLE} | Front-End | Web Developer`;
 export const metadata = meta;

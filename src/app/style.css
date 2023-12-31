@@ -18,10 +18,6 @@
   justify-self: stretch;
 }
 
-.body {
-  scroll-snap-align: start;
-}
-
 .body > section:not(:nth-child(2)) {
   min-height: fit-content;
   padding: 100px 0;

@@ -1,5 +1,9 @@
 export function isMobileDevice() {
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
+  if (
+    typeof window !== "undefined" &&
+    /Mobi|Android/i.test(navigator.userAgent)
+  ) {
+    console.log(navigator.userAgent);
     return true;
   } else {
     return false;
