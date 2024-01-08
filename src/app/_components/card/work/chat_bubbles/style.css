@@ -1,0 +1,16 @@
+.card-cb {
+  background: #515151;
+  padding: 20px 10px;
+}
+
+.card-cb__chat {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #6c6b6b;
+  font-size: 18px;
+  line-height: 18px;
+  border: 1px solid rgb(126, 126, 126);
+  border-radius: 0 12px 12px 12px;
+}

@@ -1,5 +1,5 @@
 :root {
-  --font-vl: 30px;
+  --font-vl: 60px;
   --font-l: 22px;
   --font-m: 18px;
   --font-s: 14px;
@@ -20,16 +20,19 @@
   --color-shadow-inset: rgba(0, 0, 0, 0.03);
 
   --color-body: rgb(0, 0, 0);
-  --color-main: #c2d6bf;
+  --color-opposite: white;
+  --color-main: black /* #c2d6bf */;
+  --color-dark: rgb(96, 96, 96);
+  --color-deepdark: rgb(49, 49, 49);
   --color-sub: rgb(44, 45, 49);
-  --color-font: #c2d6bf;
-  --color-guide: white;
+  --color-font: rgb(255, 255, 255);
+  --color-guide: black;
   --color-smoke: whitesmoke;
 }
 
 @media screen and (max-width: 479px) {
   :root {
-    --font-vl: 20px;
+    --font-vl: 35px;
     --font-l: 18px;
     --font-m: 16px;
     --font-s: 14px;
@@ -52,6 +55,7 @@
 }
 
 body {
+  font-family: "Impact";
   min-height: 100vh;
   background-color: var(--color-body);
   color: white;
@@ -146,7 +150,6 @@ input {
 
 .border-gradient {
   position: relative;
-  background: rgb(190, 189, 189);
   background: linear-gradient(135deg, #ffd17b 0%, #19547b 80%, #19227b 100%);
   border-radius: 4px;
   transition: scale 0.3s ease;
@@ -166,5 +169,5 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 4px;
-  background-color: rgb(23, 23, 23);
+  background-color: var(--color-dark);
 }

@@ -5,23 +5,24 @@
 }
 
 .icon-scroll {
-  width: 28px;
-  height: 45px;
+  width: 26px;
+  height: 40px;
   margin-bottom: 6px;
   position: relative;
-  border: 2px solid var(--color-guide);
   border-radius: 12px;
+  border: 2px solid var(--color-opposite);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
 .icon-scroll__wheel {
-  width: 6px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   position: absolute;
   left: 50%;
-  top: 8px;
+  top: 6px;
   transform: translateX(-50%);
   border-radius: 12px;
-  background-color: var(--color-guide);
+  background-color: var(--color-opposite);
   animation: scrolling 1.6s ease infinite;
 }
 
@@ -29,6 +30,8 @@
   width: 10px;
   height: 10px;
   transform: rotateZ(45deg);
-  border: 2px solid;
-  border-color: transparent var(--color-guide) var(--color-guide) transparent;
+  border: 3px solid;
+  border-radius: 1px;
+  border-color: transparent var(--color-opposite) var(--color-opposite)
+    transparent;
 }

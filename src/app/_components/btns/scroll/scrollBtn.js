@@ -15,7 +15,7 @@ function ScrollBtn() {
         console.log("clk", main);
         const height = main.offsetHeight;
         main.scrollTo({
-          top: height,
+          top: height + 100,
           behavior: "smooth",
         });
       });

@@ -2,13 +2,23 @@ import ParticleText from "./_components/canvas/particle_text/particle_text";
 import { metadata as meta } from "@/config/metadata";
 import "./style.css";
 import ScrollBtn from "./_components/btns/scroll/scrollBtn";
-import dynamic from "next/dynamic";
-import ProjectCard from "./_components/card/project/project_card";
-import WorkCard from "./_components/card/work/work_card";
-
-const TechCard = dynamic(() => import("@comp/card/tech/tech_card"), {
-  ssr: false,
-});
+import GridAM from "./_components/grid/about_me/grid";
+import Image from "next/image";
+import TextSlider from "./_components/text_slider/text_slider";
+import CardSm from "./_components/card/work/scroll_smoother/card_sm";
+import Card3D from "./_components/card/work/3d_card/card_3d";
+import CardCB from "./_components/card/work/chat_bubbles/card_cb";
+import {
+  MemoIconAws,
+  MemoIconCss,
+  MemoIconHtml,
+  MemoIconJs,
+  MemoIconNext,
+  MemoIconReact,
+} from "@/util/icons";
+import CardPE from "./_components/card/work/particle_effect/card_pe.js";
+import CardFrame from "./_components/card/work/frame/work_card_frame";
+import CardProject from "./_components/card/project/project_card";
 
 meta.title.absolute = `${process.env.TITLE} | Front-End | Web Developer`;
 export const metadata = meta;
@@ -29,25 +39,35 @@ export default function Page() {
           <section className="about-me">
             <h2 hidden>about me</h2>
             <div className="about-me__text-wrapper">
-              <p className="tvl">{"Hi I'm Wonje."}</p>
-              <p className="tvl">A FE developer based in Seoul, Korea.</p>
-              <p className="tvl">
-                I pursue impressive UX through solid and scalable code
-              </p>
-              <p className="tvl">Check my tech stack right below</p>
+              <span className="tvl about-me__text">
+                Hi, I&#39;m <i className="about-me__text-highlight">Wonje</i>. A{" "}
+                <i className="about-me__text-highlight">front-end</i> developer
+                based in{" "}
+                <i className="about-me__text-highlight">SEOUL, KOREA</i>. I
+                pursue impressive <i className="about-me__text-highlight">UX</i>{" "}
+                through{" "}
+                <i className="about-me__text-highlight">
+                  solid and scalable code
+                </i>
+              </span>
             </div>
-            <TechCard />
+            <GridAM />
           </section>
           <section className="projects">
             <h2 hidden>projects</h2>
+            <TextSlider text={"projects"} />
+            <CardProject projectData={projectData} />
           </section>
-          <section className="border-gradient works">
-            <WorkCard title={"Scroll Smoother"} />
-            <WorkCard title={"3D Card"} />
-            <WorkCard title={"Chat Effect"} />
-            <WorkCard title={"Particle Effect"} />
-            <WorkCard />
-            <WorkCard />
+          <section className="works">
+            <h2>·•● play ground ●•·</h2>
+            <div className="works__container">
+              <CardSm />
+              <Card3D />
+              <CardCB />
+              <CardPE />
+              <CardFrame />
+              <CardFrame />
+            </div>
           </section>
         </section>
       </main>
@@ -55,3 +75,24 @@ export default function Page() {
     </>
   );
 }
+
+const projectData = {
+  title: "CLIPmARKET",
+  detail: "Community website for anything",
+  imgSrc: "/images/project/clipmk/clipmk_home.png",
+  icons: ["html", "css", "js", "react", "next", "aws"],
+  keyConcepts: [
+    {
+      imgSrc: "/images/project/clipmk/clipmk_home.png",
+      detail: "Basic CRUD system",
+    },
+    {
+      imgSrc: "/images/project/clipmk/clipmk_barter.png",
+      detail: "P2P barter section",
+    },
+    {
+      imgSrc: "/images/project/clipmk/clipmk_chat.png",
+      detail: "Real-time chat using Web Socket",
+    },
+  ],
+};

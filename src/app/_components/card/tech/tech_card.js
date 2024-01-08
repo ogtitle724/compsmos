@@ -12,6 +12,7 @@ import {
   MemoIconNext,
   MemoIconNode,
   MemoIconReact,
+  MemoIconThree,
 } from "@/util/icons";
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
@@ -19,7 +20,7 @@ import { useEffect, useRef, useState } from "react";
 function TechCards() {
   const cardContainer = useRef();
   const size = useRef(20);
-  const color = useRef("#c2d6bf");
+  const color = useRef("white");
   const [focusedCard, setFocusedCard] = useState(0);
   const [width, setWidth] = useState(null);
 
@@ -174,6 +175,8 @@ function TechCards() {
               <li>Html</li>
               <li>Css</li>
               <li>Javascript</li>
+              <li>React</li>
+              <li>ThreeJS</li>
               <li>NextJS</li>
             </ul>
             <div className="tech-card__icon-wrapper">
@@ -181,6 +184,8 @@ function TechCards() {
               <MemoIconCss size={size.current} color={color.current} />
               <MemoIconJs size={size.current} color={color.current} />
               <MemoIconReact size={size.current} color={color.current} />
+              <MemoIconThree size={size.current} color={color.current} />
+              <MemoIconNext size={size.current} color={color.current} />
             </div>
           </div>
         </div>

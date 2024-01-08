@@ -1,15 +1,18 @@
-import { isMobileDevice } from "./util";
-
 class Particle {
   constructor(CTX, x, y, color) {
     this.CTX = CTX;
-    this.x = Math.random() * this.CTX.canvasWidth;
-    this.y = Math.random() * this.CTX.canvasHeight;
+    this.x =
+      Math.random() *
+        (this.CTX.boundingRect.right - this.CTX.boundingRect.left) +
+      this.CTX.boundingRect.left;
+    this.y = y;
 
     this.originX = x;
     this.originY = y;
     this.color = color;
-    this.size = this.CTX.step;
+    this.w = 5;
+    this.h = 2;
+    this.r = 2;
 
     this.dx = 0;
     this.dy = 0;
@@ -18,20 +21,23 @@ class Particle {
     this.force = 0;
     this.angle = 0;
     this.distance = 0;
-    this.friction = Math.random() * 0.6 + 0.15;
-    this.ease = Math.random() * 0.1 + 0.02;
+    this.friction = Math.random() * 0.3 + 0.5;
+    this.ease = 0.1 * Math.random() + 0.04;
   }
 
   draw() {
     this.CTX.ctx.fillStyle = this.color;
-    this.CTX.ctx.fillRect(this.x, this.y, this.size, this.size);
+    /* this.CTX.ctx.beginPath();
+    this.CTX.ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+    this.CTX.ctx.fill(); */
+    this.CTX.ctx.fillRect(this.x, this.y, this.w, this.h);
   }
 
   update() {
     this.dx = this.CTX.mouse.x - this.x;
     this.dy = this.CTX.mouse.y - this.y;
     this.distance = this.dx * this.dx + this.dy * this.dy;
-    this.force = -this.CTX.mouse.r / this.distance;
+    this.force = -Math.min(this.CTX.mouse.r / this.distance, 60);
 
     if (this.distance < this.CTX.mouse.r) {
       this.angle = Math.atan2(this.dy, this.dx);
@@ -50,14 +56,15 @@ class CTX {
     this.canvasWidth = width;
     this.canvasHeight = height;
     this.particles = [];
-    this.step = 1;
+    this.step = 5;
 
     this.text = null;
     this.mouse = {
       x: 0,
       y: 0,
-      r: 20000,
+      r: 5000,
     };
+
     this.boundingRect = {
       top: this.canvasHeight,
       bottom: 0,
@@ -93,30 +100,29 @@ class CTX {
     const browserWidth = window.innerWidth;
     let fontSize = null;
 
-    if (browserWidth > 1023) {
-      fontSize = 100;
-      this.mouse.r = 12000;
+    if (browserWidth > 1200) {
+      fontSize = 160;
+    } else if (browserWidth > 1023) {
+      fontSize = 130;
     } else if (browserWidth > 768) {
-      fontSize = 90;
-      this.mouse.r = 12000;
+      fontSize = 100;
     } else if (browserWidth > 479) {
-      fontSize = 70;
-      this.mouse.r = 10000;
+      fontSize = 56;
     } else {
-      fontSize = 50;
-      this.mouse.r = 7000;
+      fontSize = 45;
     }
 
     const lineHeight = fontSize + 10;
 
     this.text = text;
-    this.ctx.fillStyle = this.getGradient();
-    this.ctx.font = `500 ${fontSize}px ${fontFamily}`;
+    this.ctx.fillStyle = "white";
+    this.ctx.letterSpacing = "10px";
+    this.ctx.font = `700 ${fontSize}px ${fontFamily}`;
     this.ctx.textAlign = "center";
     this.ctx.textBaseline = "middle";
 
     const words = text.split(" ");
-    const maxWidth = Math.min(700, this.canvasWidth * 0.7);
+    const maxWidth = this.canvasWidth * 0.95;
     const lineArray = [""];
 
     for (let word of words) {
@@ -130,11 +136,7 @@ class CTX {
     }
 
     const textBlockHeight = (lineArray.length - 1) * lineHeight;
-    const initialBaseLine =
-      (this.canvasHeight -
-        textBlockHeight -
-        (isMobileDevice() ? fontSize : 0)) /
-      2;
+    const initialBaseLine = (this.canvasHeight - textBlockHeight) / 2;
 
     lineArray.forEach((line, idx) => {
       this.ctx.fillText(
@@ -157,14 +159,12 @@ class CTX {
       this.canvasHeight
     ).data;
 
-    this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasWidth);
-
     for (let y = 0; y < this.canvasHeight; y += this.step) {
       for (let x = 0; x < this.canvasWidth; x += this.step) {
         const pixelIdx = (y * this.canvasWidth + x) * 4;
         const alpha = pixels[pixelIdx + 3];
 
-        if (alpha > 10) {
+        if (alpha > 5) {
           const color = `rgb(${pixels[pixelIdx]}, ${pixels[pixelIdx + 1]}, ${
             pixels[pixelIdx + 2]
           })`;

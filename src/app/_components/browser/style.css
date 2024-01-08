@@ -1,0 +1,125 @@
+.browser {
+  --color-browser-body: rgb(236, 240, 250);
+  --color-tab: white;
+  --color-tab-wrapper: rgb(217, 219, 230);
+  --color-url: rgb(223, 224, 237);
+  --color-url-wrapper: rgb(245, 247, 255);
+  width: 430px;
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-browser-body);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.browser__tab-wrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: var(--color-tab-wrapper);
+}
+
+.browser__tab {
+  width: fit-content;
+  margin-top: 6px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.browser__tab-item {
+  height: 80%;
+  padding: 4px 16px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  background-color: var(--color-tab-wrapper);
+}
+
+.browser__tab-item--focus {
+  background-color: var(--color-url-wrapper);
+}
+
+.browser__tab-item > p {
+  font-size: var(--font-vs);
+  color: black;
+}
+
+.browser__tab-btn-wrapper {
+  align-self: center;
+  margin-right: 6px;
+  display: flex;
+  gap: 3px;
+}
+
+.browser__tab-btn-wrapper > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.browser__info {
+  width: 100%;
+  height: fit-content;
+  padding: 0 12px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: var(--color-url-wrapper);
+}
+
+.browser__url-wrapper {
+  height: fit-content;
+  padding: 3px 14px;
+  margin: 3px 0;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-url);
+  border-radius: 30px;
+}
+
+.browser__url {
+  width: 300px;
+  padding-bottom: 2px;
+  font-size: var(--font-vs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgb(51, 51, 51);
+}
+
+.browser__tech-stack {
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.browser__tech-stack > li {
+  width: fit-content;
+  height: 18px;
+  list-style: none;
+}
+
+.browser__main {
+  flex-grow: 1;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+}
+
+.browser__main > div {
+  width: 100%;
+  height: 100%;
+  background: url(/images/sample/clipmk.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

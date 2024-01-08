@@ -1,0 +1,10 @@
+.card-pe {
+  background: rgb(29, 143, 159);
+  height: 100%;
+  background: linear-gradient(
+    6deg,
+    rgba(29, 143, 159, 1) 0%,
+    rgba(60, 218, 244, 1) 100%
+  );
+  overflow: hidden;
+}

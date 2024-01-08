@@ -1,13 +1,13 @@
 .particle-text {
   width: 100vw;
-  height: 90svh;
+  height: 93svh;
   position: absolute;
   top: 0;
   left: 0;
 }
 
 .particle-text__canvas {
-  background-color: var(--color-body);
+  background-color: transparent;
 }
 
 .particle-text input {

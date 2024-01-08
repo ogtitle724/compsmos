@@ -1,0 +1,88 @@
+.card-3d {
+  background: #05505f;
+  background: radial-gradient(circle at 50% 50%, #05505f 0%, #128ba3 99%);
+}
+
+.card-3d__card-wrapper {
+  width: 76%;
+  aspect-ratio: 4/3;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-3d__card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgb(193, 205, 230);
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15),
+    -10px 10px 10px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+}
+
+.card-3d__card > span {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  line-height: 100px;
+  color: transparent;
+}
+
+.card-3d__card > span:nth-child(1) {
+  left: 40%;
+  text-shadow: 0 0 10px rgb(164, 66, 164);
+}
+
+.card-3d__card > span:nth-child(2) {
+  left: 60%;
+  text-shadow: 0 0 10px rgb(21, 16, 190);
+}
+
+.card-3d__deco {
+  width: 130%;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(-50deg);
+}
+
+.card-3d__deco > div {
+  width: 100%;
+  height: 20px;
+}
+
+.card-3d__deco > div:nth-child(1) {
+  background-color: #c31000;
+}
+
+.card-3d__deco > div:nth-child(2) {
+  background-color: #002ac3;
+}
+
+.card-3d__deco > div:nth-child(3) {
+  background-color: #5bc300;
+}
+
+.card-3d__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at -50% 50%,
+    rgba(171, 194, 208, 0.8) 0%,
+    rgba(171, 194, 208, 0.4) 10%,
+    rgba(171, 194, 208, 0.1) 60%,
+    transparent,
+    transparent
+  );
+  mix-blend-mode: color-dodge;
+  background-size: 300%;
+  background-position: 50%;
+  z-index: 2;
+}

@@ -86,8 +86,7 @@ function ParticleText() {
           { passive: true }
         );
       }
-
-      ctx.current.generateParticles("FRONT-END JANG.WONJE DEVELOPER");
+      ctx.current.generateParticles("IAM WONJE FRONT-END DEVELOPER");
       ctx.current.animate();
     }
   }, []);

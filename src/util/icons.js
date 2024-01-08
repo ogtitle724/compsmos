@@ -100,3 +100,22 @@ export const MemoIconGithub = memo(IconGithub);
 export const MemoIconGit = memo(IconGit);
 export const MemoIconCodepen = memo(IconCodepen);
 export const MemoIconOpen = memo(IconOpen);
+
+export const iconMapper = (type, size = 18, color) => {
+  const mapper = {
+    html: <MemoIconHtml size={size} color={color} />,
+    css: <MemoIconCss size={size} color={color} />,
+    js: <MemoIconJs size={size} color={color} />,
+    react: <MemoIconReact size={size} color={color} />,
+    three: <MemoIconThree size={size} color={color} />,
+    next: <MemoIconNext size={size} color={color} />,
+    ex: <MemoIconEx size={size} color={color} />,
+    mongo: <MemoIconMongo size={size} color={color} />,
+    aws: <MemoIconAws size={size} color={color} />,
+    vercel: <MemoIconVercel size={size} color={color} />,
+    git: <MemoIconGit size={size} color={color} />,
+    github: <MemoIconGithub size={size} color={color} />,
+  };
+
+  return mapper[type];
+};

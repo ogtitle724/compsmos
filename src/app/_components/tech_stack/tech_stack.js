@@ -16,7 +16,6 @@ import {
   MemoIconReact,
   MemoIconVercel,
 } from "@/util/icons";
-import { set } from "mongoose";
 
 function TechStack(props) {
   const line1Ref = useRef();
