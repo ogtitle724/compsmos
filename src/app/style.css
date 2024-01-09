@@ -97,7 +97,7 @@
 }
 
 .works > h2 {
-  margin: 100px auto;
+  margin: 200px auto 100px auto;
   font-size: 100px;
   color: var(--color-dark);
   text-align: center;
@@ -125,17 +125,28 @@
 }
 
 @media screen and (max-width: 1023px) {
-  .works {
+  .works__container {
     grid-template-columns: repeat(auto-fill, 46vw);
+  }
+
+  .works > h2 {
+    font-size: 80px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .works {
+  .works__container {
     grid-template-columns: repeat(auto-fill, min(85vw, 540px));
     row-gap: 50px;
+  }
+
+  .works > h2 {
+    font-size: 55px;
   }
 }
 
 @media screen and (max-width: 479px) {
+  .works > h2 {
+    font-size: 36px;
+  }
 }
