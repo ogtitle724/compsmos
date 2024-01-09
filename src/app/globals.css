@@ -41,7 +41,14 @@
   }
 }
 
+@font-face {
+  font-family: Impacto;
+  font-weight: bold;
+  src: url(data:font/ttf;base64,AAEAAAAXAQ...);
+}
+
 * {
+  font-family: Impacto, Impact, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -55,7 +62,6 @@
 }
 
 body {
-  font-family: "Impact";
   min-height: 100vh;
   background-color: var(--color-body);
   color: white;

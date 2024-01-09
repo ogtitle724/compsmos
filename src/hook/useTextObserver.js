@@ -8,7 +8,9 @@ export default function useTextObserver() {
     const observerInstance = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
-          entry.target.style.left = entry.isIntersecting ? "-100%" : "300px";
+          entry.target.style.left = entry.isIntersecting
+            ? `-${entry.target.offsetWidth - window.innerWidth + 150}px`
+            : "200px";
         }),
       { threshold: 0 }
     );
