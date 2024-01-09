@@ -3,19 +3,10 @@ import { metadata as meta } from "@/config/metadata";
 import "./style.css";
 import ScrollBtn from "./_components/btns/scroll/scrollBtn";
 import GridAM from "./_components/grid/about_me/grid";
-import Image from "next/image";
 import TextSlider from "./_components/text_slider/text_slider";
 import CardSm from "./_components/card/work/scroll_smoother/card_sm";
 import Card3D from "./_components/card/work/3d_card/card_3d";
 import CardCB from "./_components/card/work/chat_bubbles/card_cb";
-import {
-  MemoIconAws,
-  MemoIconCss,
-  MemoIconHtml,
-  MemoIconJs,
-  MemoIconNext,
-  MemoIconReact,
-} from "@/util/icons";
 import CardPE from "./_components/card/work/particle_effect/card_pe.js";
 import CardFrame from "./_components/card/work/frame/work_card_frame";
 import CardProject from "./_components/card/project/project_card";
@@ -57,9 +48,10 @@ export default function Page() {
             <h2 hidden>projects</h2>
             <TextSlider text={"projects"} />
             <CardProject projectData={projectData} />
+            <CardProject projectData={projectData} />
           </section>
           <section className="works">
-            <h2>·•● play ground ●•·</h2>
+            <h2>••• play ground •••</h2>
             <div className="works__container">
               <CardSm />
               <Card3D />

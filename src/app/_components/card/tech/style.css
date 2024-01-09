@@ -54,7 +54,6 @@
 .tech-card-title {
   font-size: var(--font-vs);
   text-transform: uppercase;
-  font-weight: 600;
   color: var(--color-body);
 }
 

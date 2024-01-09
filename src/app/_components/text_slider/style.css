@@ -5,7 +5,6 @@
   font-size: 700px;
   line-height: 700px;
   text-transform: uppercase;
-  font-weight: 500;
   color: var(--color-dark);
   transition: 3s ease-in-out;
   z-index: -1;

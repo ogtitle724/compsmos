@@ -41,14 +41,7 @@
   }
 }
 
-@font-face {
-  font-family: Impacto;
-  font-weight: bold;
-  src: url(data:font/ttf;base64,AAEAAAAXAQ...);
-}
-
 * {
-  font-family: Impacto, Impact, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -107,37 +100,31 @@ input {
 
 .tvl {
   font-size: var(--font-vl);
-  font-weight: 500;
   color: var(--color-font);
 }
 
 .tvl-b {
   font-size: var(--font-l);
-  font-weight: 600;
   color: var(--color-font);
 }
 
 .tl {
   font-size: var(--font-l);
-  font-weight: 500;
   color: var(--color-font);
 }
 
 .tl-b {
   font-size: var(--font-l);
-  font-weight: 600;
   color: var(--color-font);
 }
 
 .tm {
   font-size: var(--font-m);
-  font-weight: 400;
   color: var(--color-font);
 }
 
 .ts {
   font-size: var(--font-s);
-  font-weight: 300;
   color: var(--color-font);
 }
 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^6.1.0",
+    "@next/font": "^14.0.4",
     "ckeditor5-custom-build": "file:ckeditor5",
     "mongoose": "^8.0.1",
     "next": "14.0.1",

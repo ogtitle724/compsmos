@@ -87,7 +87,6 @@
   text-align: end;
   transition: transform 0.2s;
   font-size: 30px;
-  font-weight: 600;
 }
 
 .menu__topic p:hover {
@@ -101,7 +100,6 @@
   text-align: start;
   transition: transform 0.2s;
   font-size: 30px;
-  font-weight: 500;
 }
 
 .menu__subTopic p:hover {

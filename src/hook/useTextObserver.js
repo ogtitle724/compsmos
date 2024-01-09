@@ -11,6 +11,8 @@ export default function useTextObserver() {
           entry.target.style.left = entry.isIntersecting
             ? `-${entry.target.offsetWidth - window.innerWidth + 150}px`
             : "200px";
+
+          if (entry.isIntersecting) observerInstance.unobserve(entry.target);
         }),
       { threshold: 0 }
     );

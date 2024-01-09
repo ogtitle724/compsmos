@@ -25,12 +25,13 @@
 
 .body > section {
   width: 100%;
-  margin-bottom: 160px;
+  margin-top: 200px;
   position: relative;
 }
 
 .about-me {
   height: fit-content;
+  padding: 0 16px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -41,11 +42,10 @@
 .about-me__text-wrapper {
   width: min(90vw, 740px);
   height: fit-content;
-  padding: 30px;
   position: relative;
 }
 
-.about-me__text-wrapper::after {
+/* .about-me__text-wrapper::after {
   content: "";
   width: 40px;
   height: 40px;
@@ -69,7 +69,7 @@
   border: 1px solid;
   border-radius: 0 0 6px 0;
   border-color: transparent var(--color-dark) var(--color-dark) transparent;
-}
+} */
 
 .about-me__text-wrapper span {
   margin-bottom: 7px;
@@ -136,8 +136,8 @@
 
 @media screen and (max-width: 767px) {
   .works__container {
-    grid-template-columns: repeat(auto-fill, min(85vw, 540px));
-    row-gap: 50px;
+    grid-template-columns: repeat(auto-fill, 85vw);
+    row-gap: 30px;
   }
 
   .works > h2 {
@@ -146,6 +146,11 @@
 }
 
 @media screen and (max-width: 479px) {
+  .works__container {
+    grid-template-columns: repeat(auto-fill, 94vw);
+    row-gap: 10px;
+  }
+
   .works > h2 {
     font-size: 36px;
   }

@@ -3,13 +3,13 @@
   container-type: inline-size;
   width: 95%;
   height: fit-content;
-  margin: 60px auto;
+  margin: 20px auto;
 }
 
 .card-project {
   width: 100%;
   height: fit-content;
-  padding: 16px;
+  padding: 15px;
   display: grid;
   grid-template-columns: 45vw 1fr;
   grid-template-rows: 1fr auto;
@@ -108,13 +108,11 @@
 .card-project__title {
   font-style: normal;
   font-size: 80px;
-  font-weight: 500;
 }
 
 .card-project__description {
   font-style: normal;
   font-size: 30px;
-  font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
